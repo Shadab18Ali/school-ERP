@@ -1,0 +1,79 @@
+@import "tailwindcss";
+
+/* Figtree, served from this site (works offline and on slow networks; SIL OFL, see public/fonts). */
+@font-face { font-family: "Figtree"; font-style: normal; font-weight: 400; font-display: swap; src: url(/fonts/figtree-latin-ext-400-normal.woff2) format("woff2"); unicode-range: U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF; }
+@font-face { font-family: "Figtree"; font-style: normal; font-weight: 400; font-display: swap; src: url(/fonts/figtree-latin-400-normal.woff2) format("woff2"); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+@font-face { font-family: "Figtree"; font-style: normal; font-weight: 500; font-display: swap; src: url(/fonts/figtree-latin-ext-500-normal.woff2) format("woff2"); unicode-range: U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF; }
+@font-face { font-family: "Figtree"; font-style: normal; font-weight: 500; font-display: swap; src: url(/fonts/figtree-latin-500-normal.woff2) format("woff2"); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+@font-face { font-family: "Figtree"; font-style: normal; font-weight: 600; font-display: swap; src: url(/fonts/figtree-latin-ext-600-normal.woff2) format("woff2"); unicode-range: U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF; }
+@font-face { font-family: "Figtree"; font-style: normal; font-weight: 600; font-display: swap; src: url(/fonts/figtree-latin-600-normal.woff2) format("woff2"); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+@font-face { font-family: "Figtree"; font-style: normal; font-weight: 700; font-display: swap; src: url(/fonts/figtree-latin-ext-700-normal.woff2) format("woff2"); unicode-range: U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF; }
+@font-face { font-family: "Figtree"; font-style: normal; font-weight: 700; font-display: swap; src: url(/fonts/figtree-latin-700-normal.woff2) format("woff2"); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+
+/* Palette: chalkboard green for structure, pencil yellow as the single bright accent. */
+@theme {
+  --font-sans: "Figtree", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --color-board-950: #14291f;
+  --color-board-900: #1b362b;
+  --color-board-800: #234536;
+  --color-board-700: #2f5b47;
+  --color-leaf-600: #2f6b57;
+  --color-leaf-700: #255746;
+  --color-leaf-50: #eef5f1;
+  --color-pencil-400: #f2c230;
+  --color-pencil-100: #fdf3d0;
+  --color-paper: #f6f7f5;
+  --color-ink: #1a2321;
+  --color-muted: #5d6b67;
+  --color-line: #dfe4e1;
+  --color-danger-600: #b42318;
+  --color-danger-50: #fdeceb;
+}
+
+html,
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-pencil-400);
+  outline-offset: 2px;
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* A link inside running text is underlined, not told apart by its colour alone (WCAG 1.4.1). */
+p a[href] {
+  text-decoration-line: underline;
+  text-underline-offset: 2px;
+}
+
+/* A table that scrolls sideways can be focused and scrolled with the keyboard (see ScrollRegion). */
+[data-scroll-region]:focus-visible {
+  outline: 2px solid var(--color-leaf-600, #16a34a);
+  outline-offset: 2px;
+}
+
+@layer base {
+  /* A grid cell may shrink below its content's natural width, so a wide table inside it scrolls
+     within its own box instead of pushing the whole page sideways on a phone. (Utilities such as
+     min-w-* still win: this is in the base layer.) */
+  .grid > * {
+    min-width: 0;
+  }
+}

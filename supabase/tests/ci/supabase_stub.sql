@@ -47,3 +47,7 @@ create schema if not exists storage authorization current_user;
 create table if not exists storage.buckets (id text primary key, name text, public boolean default false,
   file_size_limit bigint, allowed_mime_types text[]);
 create table if not exists storage.objects (id uuid primary key default gen_random_uuid(), bucket_id text, name text);
+-- Supabase keeps pgcrypto in the "extensions" schema; migration 0020 calls it there
+create schema if not exists extensions;
+create or replace function extensions.gen_random_bytes(integer) returns bytea
+  language sql volatile as $$ select public.gen_random_bytes($1) $$;

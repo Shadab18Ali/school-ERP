@@ -1,0 +1,96 @@
+from fastapi import APIRouter
+
+from app.api.v1.routes import (
+    admin,
+    admissions,
+    analytics,
+    attendance,
+    audit,
+    billing,
+    certificates,
+    classes,
+    collection,
+    dashboard,
+    documents,
+    enquiries,
+    exams,
+    fees,
+    guardians,
+    health,
+    homework,
+    hr,
+    id_cards,
+    inventory,
+    library,
+    me,
+    my,
+    notices,
+    notifications,
+    payments,
+    payroll,
+    platform,
+    portal,
+    public_admissions,
+    public_verify,
+    push,
+    report_cards,
+    reports,
+    school,
+    school_account,
+    sections,
+    sessions,
+    student_login,
+    students,
+    teachers,
+    teaching,
+    timetable,
+    transport,
+)
+
+api_router = APIRouter()
+api_router.include_router(health.router)
+api_router.include_router(me.router)
+api_router.include_router(school.router)
+api_router.include_router(sessions.router)
+api_router.include_router(classes.router)
+api_router.include_router(sections.router)
+api_router.include_router(students.router)
+api_router.include_router(documents.router)
+api_router.include_router(fees.heads_router)
+api_router.include_router(fees.router)
+api_router.include_router(collection.router)
+api_router.include_router(attendance.router)
+api_router.include_router(dashboard.router)
+api_router.include_router(reports.router)
+api_router.include_router(portal.router)
+api_router.include_router(notices.router)
+api_router.include_router(guardians.router)
+api_router.include_router(my.router)
+api_router.include_router(student_login.router)
+api_router.include_router(teachers.router)
+api_router.include_router(teaching.router)
+api_router.include_router(timetable.router)
+api_router.include_router(homework.router)
+api_router.include_router(exams.router)
+api_router.include_router(report_cards.router)
+api_router.include_router(admissions.router)
+api_router.include_router(public_admissions.router)
+api_router.include_router(enquiries.router)
+api_router.include_router(payments.router)
+api_router.include_router(notifications.router)
+api_router.include_router(library.router)
+api_router.include_router(transport.router)
+api_router.include_router(inventory.router)
+api_router.include_router(hr.router)
+api_router.include_router(payroll.router)
+api_router.include_router(certificates.settings_router)
+api_router.include_router(certificates.router)
+api_router.include_router(id_cards.router)
+api_router.include_router(public_verify.router)
+api_router.include_router(push.router)
+api_router.include_router(analytics.router)
+api_router.include_router(admin.router)
+api_router.include_router(platform.router)
+api_router.include_router(billing.router)
+api_router.include_router(school_account.router)
+api_router.include_router(audit.router)

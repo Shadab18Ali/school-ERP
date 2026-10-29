@@ -1,0 +1,10 @@
+.env
+.env.local
+**/.venv/
+**/__pycache__/
+**/.pytest_cache/
+frontend/node_modules/
+frontend/.next/
+.venv*/
+supabase/.temp/
+.ruff_cache/
