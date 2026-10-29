@@ -1,0 +1,1029 @@
+=== FRONTEND PAGES ===
+\frontend\src\app\(app)\admin\analytics\page.tsx
+\frontend\src\app\(app)\admin\audit\page.tsx
+\frontend\src\app\(app)\admin\billing\page.tsx
+\frontend\src\app\(app)\admin\invoices\page.tsx
+\frontend\src\app\(app)\admin\plans\page.tsx
+\frontend\src\app\(app)\admin\schools\page.tsx
+\frontend\src\app\(app)\admin\schools\[id]\page.tsx
+\frontend\src\app\(app)\admissions\page.tsx
+\frontend\src\app\(app)\admissions\[id]\page.tsx
+\frontend\src\app\(app)\analytics\page.tsx
+\frontend\src\app\(app)\attendance\page.tsx
+\frontend\src\app\(app)\attendance\reports\page.tsx
+\frontend\src\app\(app)\audit-log\page.tsx
+\frontend\src\app\(app)\certificates\page.tsx
+\frontend\src\app\(app)\classes\page.tsx
+\frontend\src\app\(app)\communication\page.tsx
+\frontend\src\app\(app)\dashboard\page.tsx
+\frontend\src\app\(app)\enquiries\page.tsx
+\frontend\src\app\(app)\enquiries\[id]\page.tsx
+\frontend\src\app\(app)\exams\page.tsx
+\frontend\src\app\(app)\exams\[id]\page.tsx
+\frontend\src\app\(app)\fees\page.tsx
+\frontend\src\app\(app)\fees\collect\page.tsx
+\frontend\src\app\(app)\fees\collect\[studentId]\page.tsx
+\frontend\src\app\(app)\fees\online\page.tsx
+\frontend\src\app\(app)\fees\payments\page.tsx
+\frontend\src\app\(app)\fees\structures\[id]\page.tsx
+\frontend\src\app\(app)\homework\page.tsx
+\frontend\src\app\(app)\homework\[id]\page.tsx
+\frontend\src\app\(app)\id-cards\page.tsx
+\frontend\src\app\(app)\inventory\page.tsx
+\frontend\src\app\(app)\inventory\items\[id]\page.tsx
+\frontend\src\app\(app)\leave\page.tsx
+\frontend\src\app\(app)\library\page.tsx
+\frontend\src\app\(app)\library\books\[id]\page.tsx
+\frontend\src\app\(app)\library\borrowers\[kind]\[id]\page.tsx
+\frontend\src\app\(app)\my\page.tsx
+\frontend\src\app\(app)\my\homework\[id]\page.tsx
+\frontend\src\app\(app)\notices\page.tsx
+\frontend\src\app\(app)\notifications\page.tsx
+\frontend\src\app\(app)\payroll\page.tsx
+\frontend\src\app\(app)\payroll\runs\[id]\page.tsx
+\frontend\src\app\(app)\payroll\staff\[id]\page.tsx
+\frontend\src\app\(app)\portal\page.tsx
+\frontend\src\app\(app)\portal\[studentId]\page.tsx
+\frontend\src\app\(app)\portal\[studentId]\homework\[homeworkId]\page.tsx
+\frontend\src\app\(app)\profile\page.tsx
+\frontend\src\app\(app)\report-cards\page.tsx
+\frontend\src\app\(app)\reports\page.tsx
+\frontend\src\app\(app)\sessions\page.tsx
+\frontend\src\app\(app)\settings\page.tsx
+\frontend\src\app\(app)\staff-attendance\page.tsx
+\frontend\src\app\(app)\staff-leave\page.tsx
+\frontend\src\app\(app)\students\page.tsx
+\frontend\src\app\(app)\students\new\page.tsx
+\frontend\src\app\(app)\students\[id]\page.tsx
+\frontend\src\app\(app)\students\[id]\edit\page.tsx
+\frontend\src\app\(app)\teachers\page.tsx
+\frontend\src\app\(app)\teachers\[id]\page.tsx
+\frontend\src\app\(app)\teaching\page.tsx
+\frontend\src\app\(app)\teaching\timetable\page.tsx
+\frontend\src\app\(app)\teaching\[sectionId]\page.tsx
+\frontend\src\app\(app)\timetable\page.tsx
+\frontend\src\app\(app)\transport\page.tsx
+\frontend\src\app\(app)\transport\routes\[id]\page.tsx
+\frontend\src\app\(app)\transport\staff\[id]\page.tsx
+\frontend\src\app\(app)\transport\vehicles\[id]\page.tsx
+
+=== FRONTEND ACTIONS AND PERMISSIONS ===
+\frontend\src\app\(app)\admin\analytics\page.tsx [9] import { RequirePermission } from "@/components/auth/require-permission";
+\frontend\src\app\(app)\admin\analytics\page.tsx [220] return <RequirePermission permission="platform:schools.manage"><AnalyticsView /></RequirePermission>;
+\frontend\src\app\(app)\admin\audit\page.tsx [5] import { RequirePermission } from "@/components/auth/require-permission";
+\frontend\src\app\(app)\admin\audit\page.tsx [24] return <RequirePermission permission="platform:schools.manage"><PlatformAudit /></RequirePermission>;
+\frontend\src\app\(app)\admin\billing\page.tsx [6] import { RequirePermission } from "@/components/auth/require-permission";
+\frontend\src\app\(app)\admin\billing\page.tsx [52] <form onSubmit={save} className="grid gap-4 p-5 sm:grid-cols-2" noValidate data-testid="billing-settings-form">
+\frontend\src\app\(app)\admin\billing\page.tsx [160] return <RequirePermission permission="platform:schools.manage"><BillingView /></RequirePermission>;
+\frontend\src\app\(app)\admin\invoices\page.tsx [7] import { RequirePermission } from "@/components/auth/require-permission";
+\frontend\src\app\(app)\admin\invoices\page.tsx [103] onSubmit={async (reason) => {
+\frontend\src\app\(app)\admin\invoices\page.tsx [114] return <RequirePermission permission="platform:schools.manage"><Suspense fallback={<LoadingState />}><InvoicesView /></Suspense></RequirePermission>;
+\frontend\src\app\(app)\admin\plans\page.tsx [4] import { CreditCard, Plus } from "lucide-react";
+\frontend\src\app\(app)\admin\plans\page.tsx [6] import { RequirePermission } from "@/components/auth/require-permission";
+\frontend\src\app\(app)\admin\plans\page.tsx [81] <Modal open={open} onClose={saving ? () => {} : onClose} title={plan ? `Edit ${plan.name}` : template ? `New plan from the ${template.name} template` : "New plan"} size="lg"
+\frontend\src\app\(app)\admin\plans\page.tsx [86] <form id="plan-form" onSubmit={save} className="grid gap-4 sm:grid-cols-2" noValidate>
+\frontend\src\app\(app)\admin\plans\page.tsx [133] const [editing, setEditing] = useState<Plan | null>(null);
+\frontend\src\app\(app)\admin\plans\page.tsx [161] actions={<Button onClick={() => { setEditing(null); setTemplate(undefined); setOpen(true); }} data-testid="new-plan"><Plus className="size-4" /> New plan</Button>} />
+\frontend\src\app\(app)\admin\plans\page.tsx [171] onClick={() => { setEditing(null); setTemplate(t); setOpen(true); }} data-testid={`template-${t.code.toLowerCase()}`}>
+\frontend\src\app\(app)\admin\plans\page.tsx [181] <EmptyState icon={CreditCard} title="No plans yet" message="Add the plans you offer schools (or start from Basic, Professional or Enterprise above). Then start each school's subscription on its Subscription tab." />
+\frontend\src\app\(app)\admin\plans\page.tsx [209] <Button size="sm" variant="secondary" onClick={() => { setEditing(p); setOpen(true); }}>Edit</Button>
+\frontend\src\app\(app)\admin\plans\page.tsx [219] <PlanModal open={open} plan={editing} template={template} catalog={catalog} onClose={() => setOpen(false)} onSaved={() => { setOpen(false); void load(); }} />
+\frontend\src\app\(app)\admin\plans\page.tsx [232] return <RequirePermission permission="platform:schools.manage"><PlansView /></RequirePermission>;
+\frontend\src\app\(app)\admin\schools\invite-admin-modal.tsx [22] async function onSubmit(e: FormEvent) {
+\frontend\src\app\(app)\admin\schools\invite-admin-modal.tsx [56] <form id="invite-form" onSubmit={onSubmit} className="space-y-4" noValidate>
+\frontend\src\app\(app)\admin\schools\page.tsx [7] import { RequirePermission } from "@/components/auth/require-permission";
+\frontend\src\app\(app)\admin\schools\page.tsx [40] const [editing, setEditing] = useState<School | null>(null);
+\frontend\src\app\(app)\admin\schools\page.tsx [71] setEditing(null);
+\frontend\src\app\(app)\admin\schools\page.tsx [96] actions={<Button onClick={() => { setEditing(null); setFormOpen(true); }}><Plus className="size-4" /> Add school</Button>} />
+\frontend\src\app\(app)\admin\schools\page.tsx [188] { label: "Edit details", onSelect: () => { setEditing(s); setFormOpen(true); } },
+\frontend\src\app\(app)\admin\schools\page.tsx [208] school={editing}
+\frontend\src\app\(app)\admin\schools\page.tsx [235] <RequirePermission permission="platform:schools.manage">
+\frontend\src\app\(app)\admin\schools\page.tsx [237] </RequirePermission>
+\frontend\src\app\(app)\admin\schools\school-form-modal.tsx [76] async function onSubmit(e: FormEvent) {
+\frontend\src\app\(app)\admin\schools\school-form-modal.tsx [102] title={school ? "Edit school" : "Add school"}
+\frontend\src\app\(app)\admin\schools\school-form-modal.tsx [107] <Button type="submit" form="school-form" loading={saving}>{school ? "Save changes" : "Create school"}</Button>
+\frontend\src\app\(app)\admin\schools\school-form-modal.tsx [111] <form id="school-form" onSubmit={onSubmit} className="grid gap-5 sm:grid-cols-2" noValidate>
+\frontend\src\app\(app)\admin\schools\[id]\page.tsx [8] import { RequirePermission } from "@/components/auth/require-permission";
+\frontend\src\app\(app)\admin\schools\[id]\page.tsx [54] const [editing, setEditing] = useState(false);
+\frontend\src\app\(app)\admin\schools\[id]\page.tsx [112] <Button variant="secondary" onClick={() => setEditing(true)}>Edit details</Button>
+\frontend\src\app\(app)\admin\schools\[id]\page.tsx [163] <SchoolFormModal open={editing} school={school} onClose={() => setEditing(false)} onSaved={(s) => { setSchool(s); setEditing(false); }} />
+\frontend\src\app\(app)\admin\schools\[id]\page.tsx [184] <RequirePermission permission="platform:schools.manage">
+\frontend\src\app\(app)\admin\schools\[id]\page.tsx [186] </RequirePermission>
+\frontend\src\app\(app)\admissions\page.tsx [8] import { RequirePermission } from "@/components/auth/require-permission";
+\frontend\src\app\(app)\admissions\page.tsx [213] <EmptyState icon={Inbox} title="No classes" message="Add classes first under Classes & sections." />
+\frontend\src\app\(app)\admissions\page.tsx [246] return <RequirePermission permission="admissions:view"><Admissions /></RequirePermission>;
+\frontend\src\app\(app)\admissions\[id]\page.tsx [8] import { RequirePermission } from "@/components/auth/require-permission";
+\frontend\src\app\(app)\admissions\[id]\page.tsx [180] function EditModal({ schoolId, app, open, onClose, onDone }: { schoolId: string; app: AdmissionDetail; open: boolean; onClose: () => void; onDone: (d: AdmissionDetail) => void }) {
+\frontend\src\app\(app)\admissions\[id]\page.tsx [245] const [modal, setModal] = useState<"fee" | "enroll" | "edit" | null>(null);
+\frontend\src\app\(app)\admissions\[id]\page.tsx [308] {manage && s !== "enrolled" && <Button variant="secondary" onClick={() => setModal("edit")} data-testid="action-edit"><Pencil className="size-4" /> Correct details</Button>}
+\frontend\src\app\(app)\admissions\[id]\page.tsx [388] <EditModal schoolId={schoolId} app={app} open={modal === "edit"} onClose={() => setModal(null)} onDone={(d) => done(d, "Details saved.")} />
+\frontend\src\app\(app)\admissions\[id]\page.tsx [395] return <RequirePermission permission="admissions:view"><Detail id={id} /></RequirePermission>;
+\frontend\src\app\(app)\analytics\page.tsx [10] import { RequirePermission } from "@/components/auth/require-permission";
+\frontend\src\app\(app)\analytics\page.tsx [188] return <RequirePermission permission="analytics:fees" feature="analytics"><Suspense fallback={<LoadingState />}><AnalyticsView /></Suspense></RequirePermission>;
+\frontend\src\app\(app)\attendance\page.tsx [7] import { RequirePermission } from "@/components/auth/require-permission";
+\frontend\src\app\(app)\attendance\page.tsx [54] const [marks, setMarks] = useState<Record<string, Mark>>({}); // local edits, keyed by enrollment
+\frontend\src\app\(app)\attendance\page.tsx [146] {roster.editable && roster.students.length > 0 && (
+\frontend\src\app\(app)\attendance\page.tsx [155] {!roster.editable && <p className="border-b border-line bg-pencil-100 px-4 py-2.5 text-sm" role="status" data-testid="readonly-reason">{roster.reason}</p>}
+\frontend\src\app\(app)\attendance\page.tsx [169] <fieldset className="flex gap-1" disabled={!roster.editable}>
+\frontend\src\app\(app)\attendance\page.tsx [180] <input value={m.remarks} maxLength={200} disabled={!roster.editable} placeholder="Remark (optional)" aria-label={`Remark for ${s.full_name}`}
+\frontend\src\app\(app)\attendance\page.tsx [204] return <RequirePermission permission="attendance:view"><AttendanceHome /></RequirePermission>;
+\frontend\src\app\(app)\attendance\reports\page.tsx [6] import { RequirePermission } from "@/components/auth/require-permission";
+\frontend\src\app\(app)\attendance\reports\page.tsx [185] return <RequirePermission permission="attendance:mark"><Reports /></RequirePermission>;
+\frontend\src\app\(app)\audit-log\page.tsx [4] import { RequirePermission } from "@/components/auth/require-permission";
+\frontend\src\app\(app)\audit-log\page.tsx [20] return <RequirePermission permission="audit:view"><SchoolAudit /></RequirePermission>;
+\frontend\src\app\(app)\certificates\page.tsx [6] import { RequirePermission } from "@/components/auth/require-permission";
+\frontend\src\app\(app)\certificates\page.tsx [49] return <RequirePermission permission="certificates:manage"><Suspense fallback={<LoadingState />}><Certificates /></Suspense></RequirePermission>;
+\frontend\src\app\(app)\classes\page.tsx [8] import { RequirePermission } from "@/components/auth/require-permission";
+\frontend\src\app\(app)\classes\page.tsx [29] const canManage = can("classes:manage");
+\frontend\src\app\(app)\classes\page.tsx [101] <RequirePermission permission="classes:view">
+\frontend\src\app\(app)\classes\page.tsx [105] </RequirePermission>
+\frontend\src\app\(app)\communication\page.tsx [5] import { RequirePermission } from "@/components/auth/require-permission";
+\frontend\src\app\(app)\communication\page.tsx [61] return <RequirePermission permission="notifications:manage"><Communication /></RequirePermission>;
+\frontend\src\app\(app)\enquiries\page.tsx [7] import { RequirePermission } from "@/components/auth/require-permission";
+\frontend\src\app\(app)\enquiries\page.tsx [64] return <RequirePermission permission="enquiries:view"><Enquiries /></RequirePermission>;
+\frontend\src\app\(app)\enquiries\[id]\page.tsx [7] import { RequirePermission } from "@/components/auth/require-permission";
+\frontend\src\app\(app)\enquiries\[id]\page.tsx [156] const [editing, setEditing] = useState(false);
+\frontend\src\app\(app)\enquiries\[id]\page.tsx [228] action={manage ? <Button size="sm" variant="ghost" onClick={() => setEditing(true)} data-testid="edit-enquiry"><Pencil className="size-4" /> Edit</Button> : undefined}>
+\frontend\src\app\(app)\enquiries\[id]\page.tsx [272] <EnquiryFormModal schoolId={schoolId} open={editing} enquiry={e} onClose={() => setEditing(false)} onSaved={(d) => { setE(d); setEditing(false); toast.success("Details saved."); }} />
+\frontend\src\app\(app)\enquiries\[id]\page.tsx [284] return <RequirePermission permission="enquiries:view"><Detail id={id} /></RequirePermission>;
+\frontend\src\app\(app)\exams\page.tsx [8] import { RequirePermission } from "@/components/auth/require-permission";
+\frontend\src\app\(app)\exams\page.tsx [140] return <RequirePermission permission="exams:view"><Exams /></RequirePermission>;
+\frontend\src\app\(app)\exams\[id]\page.tsx [8] import { RequirePermission } from "@/components/auth/require-permission";
+\frontend\src\app\(app)\exams\[id]\page.tsx [41] const [paper, setPaper] = useState<{ open: boolean; editing: ExamPaper | null }>({ open: false, editing: null });
+\frontend\src\app\(app)\exams\[id]\page.tsx [96] const editSheet = manage && x.status !== "published";
+\frontend\src\app\(app)\exams\[id]\page.tsx [137] {editSheet && <Button size="sm" onClick={() => setPaper({ open: true, editing: null })} data-testid="add-paper"><Plus className="size-4" /> Add paper</Button>}
+\frontend\src\app\(app)\exams\[id]\page.tsx [140] <DateSheet papers={x.papers} onEdit={editSheet ? (p) => setPaper({ open: true, editing: p }) : undefined}
+\frontend\src\app\(app)\exams\[id]\page.tsx [141] onDelete={editSheet ? setRemoving : undefined} />
+\frontend\src\app\(app)\exams\[id]\page.tsx [152] <PaperModal schoolId={schoolId} exam={x} open={paper.open} editing={paper.editing} onClose={() => setPaper({ open: false, editing: null })}
+\frontend\src\app\(app)\exams\[id]\page.tsx [153] onSaved={(e) => { setX(e); setPaper({ open: false, editing: null }); void load(); }} />
+\frontend\src\app\(app)\exams\[id]\page.tsx [170] return <RequirePermission permission="exams:view"><Detail id={id} /></RequirePermission>;
+\frontend\src\app\(app)\fees\page.tsx [7] import { RequirePermission } from "@/components/auth/require-permission";
+\frontend\src\app\(app)\fees\page.tsx [92] <div className="rounded-lg border border-line bg-white"><EmptyState icon={IndianRupee} title="No classes yet" message="Add classes first, then set their fees here." /></div>
+\frontend\src\app\(app)\fees\page.tsx [146] return <RequirePermission permission="fees:view"><FeesHome /></RequirePermission>;
+\frontend\src\app\(app)\fees\collect\page.tsx [7] import { RequirePermission } from "@/components/auth/require-permission";
+\frontend\src\app\(app)\fees\collect\page.tsx [140] return <RequirePermission permission="fees:collect"><Suspense fallback={<LoadingState />}><CollectList /></Suspense></RequirePermission>;
+\frontend\src\app\(app)\fees\collect\[studentId]\page.tsx [8] import { RequirePermission } from "@/components/auth/require-permission";
+\frontend\src\app\(app)\fees\collect\[studentId]\page.tsx [324] return <RequirePermission permission="fees:collect"><Suspense fallback={<LoadingState />}><Account studentId={studentId} /></Suspense></RequirePermission>;
+\frontend\src\app\(app)\fees\online\page.tsx [4] import { ChevronDown, CreditCard, RefreshCw, Search, Undo2 } from "lucide-react";
+\frontend\src\app\(app)\fees\online\page.tsx [7] import { RequirePermission } from "@/components/auth/require-permission";
+\frontend\src\app\(app)\fees\online\page.tsx [155] <EmptyState icon={CreditCard} title="No online payments" message={all === 0 ? "Payments parents make from the parent portal appear here. Set up Razorpay under Settings." : "None match these filters."} />
+\frontend\src\app\(app)\fees\online\page.tsx [172] return <RequirePermission permission="fees:view"><OnlinePayments /></RequirePermission>;
+\frontend\src\app\(app)\fees\payments\page.tsx [6] import { RequirePermission } from "@/components/auth/require-permission";
+\frontend\src\app\(app)\fees\payments\page.tsx [51] <PageHeader title="Payments" description="Every receipt issued. Receipts can't be edited or deleted." />
+\frontend\src\app\(app)\fees\payments\page.tsx [111] return <RequirePermission permission="fees:collect"><Payments /></RequirePermission>;
+\frontend\src\app\(app)\fees\structures\[id]\page.tsx [7] import { RequirePermission } from "@/components/auth/require-permission";
+\frontend\src\app\(app)\fees\structures\[id]\page.tsx [39] const [editing, setEditing] = useState<FeeItem | null>(null);
+\frontend\src\app\(app)\fees\structures\[id]\page.tsx [131] { label: "Edit", onSelect: () => { setEditing(i); setItemOpen(true); } },
+\frontend\src\app\(app)\fees\structures\[id]\page.tsx [162] {writable && <Button onClick={() => { setEditing(null); setItemOpen(true); }}><Plus className="size-4" /> Add fee item</Button>}
+\frontend\src\app\(app)\fees\structures\[id]\page.tsx [190] action={writable ? <Button onClick={() => { setEditing(null); setItemOpen(true); }}><Plus className="size-4" /> Add fee item</Button> : undefined} />
+\frontend\src\app\(app)\fees\structures\[id]\page.tsx [230] <FeeItemModal open={itemOpen} schoolId={schoolId} structureId={d.id} item={editing} heads={heads}
+\frontend\src\app\(app)\fees\structures\[id]\page.tsx [233] onSaved={(nd) => { setD(nd); setItemOpen(false); toast.success(editing ? "Fee item saved." : "Fee item added."); }} />
+\frontend\src\app\(app)\fees\structures\[id]\page.tsx [254] return <RequirePermission permission="fee_structures:view"><Detail id={id} /></RequirePermission>;
+\frontend\src\app\(app)\homework\page.tsx [3] import { RequirePermission } from "@/components/auth/require-permission";
+\frontend\src\app\(app)\homework\page.tsx [21] return <RequirePermission permission="homework:view"><Homework /></RequirePermission>;
+\frontend\src\app\(app)\homework\[id]\page.tsx [7] import { RequirePermission } from "@/components/auth/require-permission";
+\frontend\src\app\(app)\homework\[id]\page.tsx [88] const [editing, setEditing] = useState(false);
+\frontend\src\app\(app)\homework\[id]\page.tsx [125] const editable = hw.can_manage && !hw.session_is_archived;
+\frontend\src\app\(app)\homework\[id]\page.tsx [140] {editable && (
+\frontend\src\app\(app)\homework\[id]\page.tsx [142] <Button variant="secondary" onClick={() => setEditing(true)}><Pencil className="size-4" /> Edit</Button>
+\frontend\src\app\(app)\homework\[id]\page.tsx [158] {editable && (
+\frontend\src\app\(app)\homework\[id]\page.tsx [166] onRemove={editable ? removeFile : undefined} removing={busy} testId="attachments" />
+\frontend\src\app\(app)\homework\[id]\page.tsx [167] {editable && <p className="mt-1 text-xs text-muted">{FILE_HINT}</p>}
+\frontend\src\app\(app)\homework\[id]\page.tsx [206] <HomeworkFormModal schoolId={schoolId} open={editing} editing={hw} onClose={() => setEditing(false)} onSaved={(h) => { setHw(h); setEditing(false); toast.success("Saved."); }} />
+\frontend\src\app\(app)\homework\[id]\page.tsx [217] return <RequirePermission permission="homework:view"><Detail id={id} /></RequirePermission>;
+\frontend\src\app\(app)\id-cards\page.tsx [6] import { RequirePermission } from "@/components/auth/require-permission";
+\frontend\src\app\(app)\id-cards\page.tsx [48] return <RequirePermission permission="id_cards:manage"><Suspense fallback={<LoadingState />}><IdCards /></Suspense></RequirePermission>;
+\frontend\src\app\(app)\inventory\page.tsx [6] import { RequirePermission } from "@/components/auth/require-permission";
+\frontend\src\app\(app)\inventory\page.tsx [53] return <RequirePermission permission="inventory:view"><Suspense fallback={<LoadingState />}><Inventory /></Suspense></RequirePermission>;
+\frontend\src\app\(app)\inventory\items\[id]\page.tsx [7] import { RequirePermission } from "@/components/auth/require-permission";
+\frontend\src\app\(app)\inventory\items\[id]\page.tsx [34] const [editing, setEditing] = useState(false);
+\frontend\src\app\(app)\inventory\items\[id]\page.tsx [84] <Button size="sm" variant="secondary" onClick={() => setEditing(true)} data-testid="edit-item"><Pencil className="size-4" /> Edit</Button>
+\frontend\src\app\(app)\inventory\items\[id]\page.tsx [122] <ItemFormModal schoolId={schoolId} open={editing} item={item} onClose={() => setEditing(false)} onSaved={() => { setEditing(false); toast.success("Saved."); void load(); }} />
+\frontend\src\app\(app)\inventory\items\[id]\page.tsx [137] return <RequirePermission permission="inventory:view"><ItemView id={id} /></RequirePermission>;
+\frontend\src\app\(app)\leave\page.tsx [5] import { RequirePermission } from "@/components/auth/require-permission";
+\frontend\src\app\(app)\leave\page.tsx [78] return <RequirePermission permission="leave:self"><MyLeavePage /></RequirePermission>;
+\frontend\src\app\(app)\library\page.tsx [6] import { RequirePermission } from "@/components/auth/require-permission";
+\frontend\src\app\(app)\library\page.tsx [69] return <RequirePermission permission="library:view"><Suspense fallback={<LoadingState />}><Library /></Suspense></RequirePermission>;
+\frontend\src\app\(app)\library\books\[id]\page.tsx [7] import { RequirePermission } from "@/components/auth/require-permission";
+\frontend\src\app\(app)\library\books\[id]\page.tsx [96] const [editing, setEditing] = useState(false);
+\frontend\src\app\(app)\library\books\[id]\page.tsx [122] title: b.title, subtitle: b.subtitle, isbn: b.isbn, authors: b.authors, category_id: b.category_id, publisher: b.publisher, edition: b.edition,
+\frontend\src\app\(app)\library\books\[id]\page.tsx [130] ["Edition", b.edition], ["Year", b.publication_year], ["Language", b.language], ["Shelf", b.shelf_location],
+\frontend\src\app\(app)\library\books\[id]\page.tsx [146] <Button variant="secondary" onClick={() => setEditing(true)} data-testid="edit-book"><Pencil className="size-4" /> Edit</Button>
+\frontend\src\app\(app)\library\books\[id]\page.tsx [192] <BookFormModal schoolId={schoolId} open={editing} book={b} onClose={() => setEditing(false)} onSaved={(x) => { setEditing(false); setB(x); toast.success("Saved."); }} />
+\frontend\src\app\(app)\library\books\[id]\page.tsx [210] return <RequirePermission permission="library:view"><BookPage id={id} /></RequirePermission>;
+\frontend\src\app\(app)\library\borrowers\[kind]\[id]\page.tsx [6] import { RequirePermission } from "@/components/auth/require-permission";
+\frontend\src\app\(app)\library\borrowers\[kind]\[id]\page.tsx [34] <form onSubmit={find} className="flex items-end gap-2">
+\frontend\src\app\(app)\library\borrowers\[kind]\[id]\page.tsx [108] return <RequirePermission permission="library:manage"><BorrowerPage kind={kind} id={id} /></RequirePermission>;
+\frontend\src\app\(app)\my\page.tsx [4] import { RequirePermission } from "@/components/auth/require-permission";
+\frontend\src\app\(app)\my\page.tsx [11] <RequirePermission permission="self:view"><Suspense fallback={<LoadingState />}>
+\frontend\src\app\(app)\my\page.tsx [14] </Suspense></RequirePermission>
+\frontend\src\app\(app)\my\homework\[id]\page.tsx [4] import { RequirePermission } from "@/components/auth/require-permission";
+\frontend\src\app\(app)\my\homework\[id]\page.tsx [10] <RequirePermission permission="self:view">
+\frontend\src\app\(app)\my\homework\[id]\page.tsx [13] </RequirePermission>
+\frontend\src\app\(app)\notices\page.tsx [6] import { RequirePermission } from "@/components/auth/require-permission";
+\frontend\src\app\(app)\notices\page.tsx [59] <Modal open={open} size="lg" onClose={busy ? () => {} : onClose} title={notice ? "Edit notice" : "New notice"}
+\frontend\src\app\(app)\notices\page.tsx [101] const [editing, setEditing] = useState<Notice | null>(null);
+\frontend\src\app\(app)\notices\page.tsx [118] actions={<Button onClick={() => { setEditing(null); setFormOpen(true); }}><Plus className="size-4" /> New notice</Button>} />
+\frontend\src\app\(app)\notices\page.tsx [130] { label: "Edit", onSelect: () => { setEditing(n); setFormOpen(true); } },
+\frontend\src\app\(app)\notices\page.tsx [138] <NoticeForm open={formOpen} notice={editing} classes={classes} schoolId={schoolId} onClose={() => setFormOpen(false)}
+\frontend\src\app\(app)\notices\page.tsx [139] onSaved={() => { setFormOpen(false); toast.success(editing ? "Notice saved." : "Notice published."); void load(); }} />
+\frontend\src\app\(app)\notices\page.tsx [156] return <RequirePermission permission="notices:view"><NoticesHome /></RequirePermission>;
+\frontend\src\app\(app)\payroll\page.tsx [7] import { RequirePermission } from "@/components/auth/require-permission";
+\frontend\src\app\(app)\payroll\page.tsx [45] return <RequirePermission permission="payroll:manage"><Suspense fallback={<LoadingState />}><Payroll /></Suspense></RequirePermission>;
+\frontend\src\app\(app)\payroll\runs\[id]\page.tsx [8] import { RequirePermission } from "@/components/auth/require-permission";
+\frontend\src\app\(app)\payroll\runs\[id]\page.tsx [282] return <RequirePermission permission="payroll:manage"><RunView id={id} /></RequirePermission>;
+\frontend\src\app\(app)\payroll\staff\[id]\page.tsx [6] import { RequirePermission } from "@/components/auth/require-permission";
+\frontend\src\app\(app)\payroll\staff\[id]\page.tsx [82] <Modal open={open} size="lg" title={structure ? "Edit salary structure" : latest ? "New salary from a month (revision)" : "Set the salary"} onClose={busy ? () => {} : onClose}
+\frontend\src\app\(app)\payroll\staff\[id]\page.tsx [135] const [editing, setEditing] = useState<Structure | "new" | null>(null);
+\frontend\src\app\(app)\payroll\staff\[id]\page.tsx [159] <Button onClick={() => setEditing("new")} data-testid="add-structure"><Plus className="size-4" /> {latest ? "Revise salary" : "Set salary"}</Button>
+\frontend\src\app\(app)\payroll\staff\[id]\page.tsx [173] { label: "Edit…", onSelect: () => setEditing(s) }, { label: "Remove…", onSelect: () => setDeleting(s), tone: "danger" }]} /></span>}
+\frontend\src\app\(app)\payroll\staff\[id]\page.tsx [205] <StructureModal schoolId={schoolId} teacherId={id} open={editing !== null} structure={editing === "new" ? null : editing} latest={latest} onClose={() => setEditing(null)}
+\frontend\src\app\(app)\payroll\staff\[id]\page.tsx [206] onSaved={(x) => { setEditing(null); setD(x); toast.success("Salary saved."); }} />
+\frontend\src\app\(app)\payroll\staff\[id]\page.tsx [214] return <RequirePermission permission="payroll:manage"><StaffSalaryView id={id} /></RequirePermission>;
+\frontend\src\app\(app)\portal\page.tsx [4] import { RequirePermission } from "@/components/auth/require-permission";
+\frontend\src\app\(app)\portal\page.tsx [33] return <RequirePermission permission="portal:view"><MyChildren /></RequirePermission>;
+\frontend\src\app\(app)\portal\[studentId]\page.tsx [4] import { RequirePermission } from "@/components/auth/require-permission";
+\frontend\src\app\(app)\portal\[studentId]\page.tsx [11] <RequirePermission permission="portal:view"><Suspense fallback={<LoadingState />}>
+\frontend\src\app\(app)\portal\[studentId]\page.tsx [14] </Suspense></RequirePermission>
+\frontend\src\app\(app)\portal\[studentId]\homework\[homeworkId]\page.tsx [4] import { RequirePermission } from "@/components/auth/require-permission";
+\frontend\src\app\(app)\portal\[studentId]\homework\[homeworkId]\page.tsx [10] <RequirePermission permission="portal:view">
+\frontend\src\app\(app)\portal\[studentId]\homework\[homeworkId]\page.tsx [13] </RequirePermission>
+\frontend\src\app\(app)\profile\page.tsx [42] async function onSubmit(e: FormEvent) {
+\frontend\src\app\(app)\profile\page.tsx [59] <form onSubmit={onSubmit} className="grid gap-4 sm:grid-cols-2" noValidate>
+\frontend\src\app\(app)\profile\page.tsx [65] <Button type="submit" loading={saving} disabled={!dirty}>Save changes</Button>
+\frontend\src\app\(app)\profile\page.tsx [79] async function onSubmit(e: FormEvent) {
+\frontend\src\app\(app)\profile\page.tsx [100] <form onSubmit={onSubmit} className="grid gap-4 sm:max-w-md" noValidate>
+\frontend\src\app\(app)\report-cards\page.tsx [6] import { RequirePermission } from "@/components/auth/require-permission";
+\frontend\src\app\(app)\report-cards\page.tsx [38] function Editor({ schoolId, t, onSaved }: { schoolId: string; t: ReportCardTemplate; onSaved: (t: ReportCardTemplate) => void }) {
+\frontend\src\app\(app)\report-cards\page.tsx [94] <div className="grid gap-6 xl:grid-cols-[1fr_minmax(0,520px)]" data-testid="template-editor">
+\frontend\src\app\(app)\report-cards\page.tsx [248] <Editor schoolId={schoolId} t={t} onSaved={(n) => setList(list.map((x) => (x.id === n.id ? n : x)))} />
+\frontend\src\app\(app)\report-cards\page.tsx [262] return <RequirePermission permission="report_cards:manage"><Templates /></RequirePermission>;
+\frontend\src\app\(app)\reports\page.tsx [7] import { RequirePermission } from "@/components/auth/require-permission";
+\frontend\src\app\(app)\reports\page.tsx [240] return <RequirePermission permission="reports:view" feature="reports"><Suspense fallback={<LoadingState />}><ReportsView /></Suspense></RequirePermission>;
+\frontend\src\app\(app)\sessions\page.tsx [3] import { RequirePermission } from "@/components/auth/require-permission";
+\frontend\src\app\(app)\sessions\page.tsx [27] <RequirePermission permission="sessions:view">
+\frontend\src\app\(app)\sessions\page.tsx [29] </RequirePermission>
+\frontend\src\app\(app)\settings\page.tsx [3] import { RequirePermission } from "@/components/auth/require-permission";
+\frontend\src\app\(app)\settings\page.tsx [23] return <RequirePermission permission="settings:manage"><SchoolSettings /></RequirePermission>;
+\frontend\src\app\(app)\staff-attendance\page.tsx [7] import { RequirePermission } from "@/components/auth/require-permission";
+\frontend\src\app\(app)\staff-attendance\page.tsx [155] return <RequirePermission permission="hr:manage"><StaffAttendance /></RequirePermission>;
+\frontend\src\app\(app)\staff-leave\page.tsx [6] import { RequirePermission } from "@/components/auth/require-permission";
+\frontend\src\app\(app)\staff-leave\page.tsx [47] return <RequirePermission permission="hr:manage"><Suspense fallback={<LoadingState />}><StaffLeave /></Suspense></RequirePermission>;
+\frontend\src\app\(app)\students\page.tsx [8] import { RequirePermission } from "@/components/auth/require-permission";
+\frontend\src\app\(app)\students\page.tsx [98] const canManage = can("students:manage");
+\frontend\src\app\(app)\students\page.tsx [106] <Link href="/students/new"><Button><Plus className="size-4" /> Add student</Button></Link>
+\frontend\src\app\(app)\students\page.tsx [163] action={canManage && !session.is_archived ? <Link href="/students/new"><Button><Plus className="size-4" /> Add student</Button></Link> : undefined} />
+\frontend\src\app\(app)\students\page.tsx [215] <RequirePermission permission="students:view">
+\frontend\src\app\(app)\students\page.tsx [217] </RequirePermission>
+\frontend\src\app\(app)\students\new\page.tsx [5] import { RequirePermission } from "@/components/auth/require-permission";
+\frontend\src\app\(app)\students\new\page.tsx [67] <PageHeader title="Add student" description={`Admission into ${current.name}`} />
+\frontend\src\app\(app)\students\new\page.tsx [77] submitLabel="Add student"
+\frontend\src\app\(app)\students\new\page.tsx [80] onSubmit={save}
+\frontend\src\app\(app)\students\new\page.tsx [88] return <RequirePermission permission="students:manage"><NewStudent /></RequirePermission>;
+\frontend\src\app\(app)\students\[id]\page.tsx [8] import { RequirePermission } from "@/components/auth/require-permission";
+\frontend\src\app\(app)\students\[id]\page.tsx [144] const canManage = can("students:manage");
+\frontend\src\app\(app)\students\[id]\page.tsx [252] <Link href={`/students/${student.id}/edit`}><Button variant="secondary"><Pencil className="size-4" /> Edit</Button></Link>
+\frontend\src\app\(app)\students\[id]\page.tsx [271] {tab === "Overview" && can("students:manage") && (
+\frontend\src\app\(app)\students\[id]\page.tsx [376] return <RequirePermission permission="students:view"><Suspense fallback={<LoadingState />}><Profile id={id} /></Suspense></RequirePermission>;
+\frontend\src\app\(app)\students\[id]\edit\page.tsx [5] import { RequirePermission } from "@/components/auth/require-permission";
+\frontend\src\app\(app)\students\[id]\edit\page.tsx [14] function EditStudent({ id }: { id: string }) {
+\frontend\src\app\(app)\students\[id]\edit\page.tsx [34] // Edit the current session's enrollment if there is one, else the latest open one.
+\frontend\src\app\(app)\students\[id]\edit\page.tsx [67] <PageHeader title={`Edit ${student.full_name}`} description={`${student.student_code}`} />
+\frontend\src\app\(app)\students\[id]\edit\page.tsx [69] mode="edit"
+\frontend\src\app\(app)\students\[id]\edit\page.tsx [81] submitLabel="Save changes"
+\frontend\src\app\(app)\students\[id]\edit\page.tsx [84] onSubmit={save}
+\frontend\src\app\(app)\students\[id]\edit\page.tsx [91] export default function EditStudentPage({ params }: { params: Promise<{ id: string }> }) {
+\frontend\src\app\(app)\students\[id]\edit\page.tsx [93] return <RequirePermission permission="students:manage"><EditStudent id={id} /></RequirePermission>;
+\frontend\src\app\(app)\teachers\page.tsx [7] import { RequirePermission } from "@/components/auth/require-permission";
+\frontend\src\app\(app)\teachers\page.tsx [52] actions={can("teachers:manage") ? <Button onClick={() => setAdding(true)}><Plus className="size-4" /> Add teacher</Button> : undefined} />
+\frontend\src\app\(app)\teachers\page.tsx [113] return <RequirePermission permission="teachers:view"><Teachers /></RequirePermission>;
+\frontend\src\app\(app)\teachers\[id]\page.tsx [6] import { RequirePermission } from "@/components/auth/require-permission";
+\frontend\src\app\(app)\teachers\[id]\page.tsx [29] const canManage = can("teachers:manage");
+\frontend\src\app\(app)\teachers\[id]\page.tsx [33] const [editing, setEditing] = useState(false);
+\frontend\src\app\(app)\teachers\[id]\page.tsx [98] <Button variant="secondary" onClick={() => setEditing(true)}><Pencil className="size-4" /> Edit</Button>
+\frontend\src\app\(app)\teachers\[id]\page.tsx [147] <TeacherFormModal open={editing} schoolId={schoolId} teacher={t} onClose={() => setEditing(false)}
+\frontend\src\app\(app)\teachers\[id]\page.tsx [148] onSaved={(nt) => { setT(nt); setEditing(false); toast.success("Teacher saved."); }} />
+\frontend\src\app\(app)\teachers\[id]\page.tsx [164] return <RequirePermission permission="teachers:view"><Profile id={id} /></RequirePermission>;
+\frontend\src\app\(app)\teaching\page.tsx [5] import { RequirePermission } from "@/components/auth/require-permission";
+\frontend\src\app\(app)\teaching\page.tsx [40] return <RequirePermission permission="teaching:view"><MyClasses /></RequirePermission>;
+\frontend\src\app\(app)\teaching\timetable\page.tsx [3] import { RequirePermission } from "@/components/auth/require-permission";
+\frontend\src\app\(app)\teaching\timetable\page.tsx [20] return <RequirePermission permission="teaching:view"><MyTimetable /></RequirePermission>;
+\frontend\src\app\(app)\teaching\[sectionId]\page.tsx [8] import { RequirePermission } from "@/components/auth/require-permission";
+\frontend\src\app\(app)\teaching\[sectionId]\page.tsx [108] return <RequirePermission permission="teaching:view"><ClassView sectionId={sectionId} /></RequirePermission>;
+\frontend\src\app\(app)\timetable\page.tsx [6] import { RequirePermission } from "@/components/auth/require-permission";
+\frontend\src\app\(app)\timetable\page.tsx [9] import { type SectionTeacher, type Slot, SlotEditor } from "@/components/timetable/slot-editor";
+\frontend\src\app\(app)\timetable\page.tsx [60] const editable = manage && grid && !grid.session_is_archived;
+\frontend\src\app\(app)\timetable\page.tsx [72] hint={editable ? "Click a slot to fill or change it" : grid.session_is_archived ? "Archived session (read-only)" : undefined} />
+\frontend\src\app\(app)\timetable\page.tsx [73] <TimetableGridView grid={grid} onCell={editable ? (day, period, cell) => setSlot({ day, period, cell }) : undefined} />
+\frontend\src\app\(app)\timetable\page.tsx [74] {editable && <SlotEditor schoolId={schoolId} sectionId={pick.section} slot={slot} subjects={subjects} teachers={teachers}
+\frontend\src\app\(app)\timetable\page.tsx [148] return <RequirePermission permission="timetable:view"><Timetable /></RequirePermission>;
+\frontend\src\app\(app)\transport\page.tsx [6] import { RequirePermission } from "@/components/auth/require-permission";
+\frontend\src\app\(app)\transport\page.tsx [56] return <RequirePermission permission="transport:view"><Suspense fallback={<LoadingState />}><Transport /></Suspense></RequirePermission>;
+\frontend\src\app\(app)\transport\routes\[id]\page.tsx [7] import { RequirePermission } from "@/components/auth/require-permission";
+\frontend\src\app\(app)\transport\routes\[id]\page.tsx [63] const [editing, setEditing] = useState(false);
+\frontend\src\app\(app)\transport\routes\[id]\page.tsx [131] {manage && <Button variant="secondary" size="sm" onClick={() => setEditing(true)} data-testid="edit-route"><Pencil className="size-4" /> Edit</Button>}
+\frontend\src\app\(app)\transport\routes\[id]\page.tsx [175] { label: "Edit stop…", onSelect: () => setStopModal(s) },
+\frontend\src\app\(app)\transport\routes\[id]\page.tsx [187] action={manage && r.status === "active" && r.stop_list.length > 0 ? <Button size="sm" onClick={() => setAssignAt("")} data-testid="route-assign"><Plus className="size-4" /> Add student</Button> : undefined}>
+\frontend\src\app\(app)\transport\routes\[id]\page.tsx [200] <RouteFormModal schoolId={schoolId} open={editing} route={r} onClose={() => setEditing(false)} onSaved={(x) => { setEditing(false); setR(x); toast.success("Route saved."); }} />
+\frontend\src\app\(app)\transport\routes\[id]\page.tsx [206] message="A stop that students have used can't be removed; move them to another stop first, or edit the stop instead." confirmLabel="Remove stop"
+\frontend\src\app\(app)\transport\routes\[id]\page.tsx [216] return <RequirePermission permission="transport:view"><RouteView id={id} /></RequirePermission>;
+\frontend\src\app\(app)\transport\staff\[id]\page.tsx [7] import { RequirePermission } from "@/components/auth/require-permission";
+\frontend\src\app\(app)\transport\staff\[id]\page.tsx [27] const [editing, setEditing] = useState(false);
+\frontend\src\app\(app)\transport\staff\[id]\page.tsx [56] <Button variant="secondary" size="sm" onClick={() => setEditing(true)} data-testid="edit-staff"><Pencil className="size-4" /> Edit</Button>
+\frontend\src\app\(app)\transport\staff\[id]\page.tsx [75] <StaffFormModal schoolId={schoolId} open={editing} person={s} onClose={() => setEditing(false)} onSaved={(x) => { setEditing(false); setS(x); toast.success("Saved."); }} />
+\frontend\src\app\(app)\transport\staff\[id]\page.tsx [85] return <RequirePermission permission="transport:manage"><StaffView id={id} /></RequirePermission>;
+\frontend\src\app\(app)\transport\vehicles\[id]\page.tsx [7] import { RequirePermission } from "@/components/auth/require-permission";
+\frontend\src\app\(app)\transport\vehicles\[id]\page.tsx [27] const [editing, setEditing] = useState(false);
+\frontend\src\app\(app)\transport\vehicles\[id]\page.tsx [55] <Button variant="secondary" size="sm" onClick={() => setEditing(true)} data-testid="edit-vehicle"><Pencil className="size-4" /> Edit</Button>
+\frontend\src\app\(app)\transport\vehicles\[id]\page.tsx [83] <VehicleFormModal schoolId={schoolId} open={editing} vehicle={v} onClose={() => setEditing(false)} onSaved={(x) => { setEditing(false); setV(x); toast.success("Vehicle saved."); }} />
+\frontend\src\app\(app)\transport\vehicles\[id]\page.tsx [93] return <RequirePermission permission="transport:view"><VehicleView id={id} /></RequirePermission>;
+\frontend\src\app\apply\[code]\page.tsx [121] <form className="space-y-5" onSubmit={(e) => { e.preventDefault(); void submit(); }} noValidate>
+\frontend\src\app\apply\[code]\track\page.tsx [63] <form className="mt-4 grid gap-4 sm:grid-cols-[1fr_1fr_auto] sm:items-end" onSubmit={(e) => { e.preventDefault(); void check(); }} noValidate>
+\frontend\src\app\auth\set-password\page.tsx [17] async function onSubmit(e: FormEvent) {
+\frontend\src\app\auth\set-password\page.tsx [34] <form onSubmit={onSubmit} className="w-full max-w-sm space-y-4" noValidate>
+\frontend\src\app\login\page.tsx [29] async function onSubmit(e: FormEvent) {
+\frontend\src\app\login\page.tsx [56] <form onSubmit={onSubmit} className="space-y-4" noValidate>
+\frontend\src\components\auth\require-permission.tsx [16] export function RequirePermission({ permission, feature, children }: { permission: Permission; feature?: PlanFeatureKey; children: ReactNode }) {
+\frontend\src\components\classes\class-modals.tsx [33] async function onSubmit(e: FormEvent) {
+\frontend\src\components\classes\class-modals.tsx [59] title={cls ? `Edit ${cls.name}` : "Add class"}
+\frontend\src\components\classes\class-modals.tsx [62] <Button type="submit" form="class-form" loading={saving}>{cls ? "Save changes" : "Add class"}</Button>
+\frontend\src\components\classes\class-modals.tsx [65] <form id="class-form" onSubmit={onSubmit} className="space-y-4" noValidate>
+\frontend\src\components\classes\classes-tab.tsx [32] const [editing, setEditing] = useState<SchoolClass | null>(null);
+\frontend\src\components\classes\classes-tab.tsx [107] <Button onClick={() => { setEditing(null); setFormOpen(true); }}><Plus className="size-4" /> Add class</Button>
+\frontend\src\components\classes\classes-tab.tsx [169] { label: "Edit", onSelect: () => { setEditing(c); setFormOpen(true); } },
+\frontend\src\components\classes\classes-tab.tsx [185] <ClassFormModal open={formOpen} schoolId={schoolId} cls={editing} onClose={() => setFormOpen(false)}
+\frontend\src\components\classes\classes-tab.tsx [186] onSaved={async (c) => { setFormOpen(false); toast.success(editing ? `${c.name} saved.` : `${c.name} added.`); await load(); }} />
+\frontend\src\components\classes\section-modals.tsx [128] /** Add one section, or edit one (including moving it to another class). */
+\frontend\src\components\classes\section-modals.tsx [151] async function onSubmit(e: FormEvent) {
+\frontend\src\components\classes\section-modals.tsx [182] title={section ? `Edit ${section.class_name} ${section.name}` : "Add section"}
+\frontend\src\components\classes\section-modals.tsx [186] <Button type="submit" form="section-form" loading={saving}>{section ? "Save changes" : "Add section"}</Button>
+\frontend\src\components\classes\section-modals.tsx [189] <form id="section-form" onSubmit={onSubmit} className="space-y-4" noValidate>
+\frontend\src\components\classes\sections-tab.tsx [34] const [editing, setEditing] = useState<Section | null>(null);
+\frontend\src\components\classes\sections-tab.tsx [113] <Button onClick={() => { setEditing(null); setFormOpen(true); }} disabled={classes.length === 0}><Plus className="size-4" /> Add section</Button>
+\frontend\src\components\classes\sections-tab.tsx [156] { label: "Edit", onSelect: () => { setEditing(s); setFormOpen(true); } },
+\frontend\src\components\classes\sections-tab.tsx [173] <SectionFormModal open={formOpen} schoolId={schoolId} session={session} classes={classes} section={editing}
+\frontend\src\components\classes\sections-tab.tsx [175] onSaved={async (s) => { setFormOpen(false); toast.success(`${s.class_name} ${s.name} ${editing ? "saved" : "added"}.`); await load(); }} />
+\frontend\src\components\documents\issue.tsx [107] <p className="mt-3 text-xs text-muted">Anyone can check it by scanning the QR code on the certificate. It can&apos;t be edited; if something is wrong, revoke it (Issued tab) and issue a new one.</p>
+\frontend\src\components\documents\templates.tsx [20] const [editing, setEditing] = useState<CertificateTemplate | "new" | null>(null);
+\frontend\src\components\documents\templates.tsx [45] <Button size="sm" onClick={() => setEditing("new")} data-testid="add-template"><Plus className="size-4" /> New certificate</Button>
+\frontend\src\components\documents\templates.tsx [57] <Button variant="ghost" size="sm" onClick={() => setEditing(t)} aria-label={`Edit ${t.name}`} data-testid="edit-template"><Pencil className="size-4" /></Button>
+\frontend\src\components\documents\templates.tsx [63] <TemplateEditor schoolId={schoolId} template={editing} placeholders={placeholders} onClose={() => setEditing(null)}
+\frontend\src\components\documents\templates.tsx [64] onSaved={(t) => { toast.success(`${t.name} saved.`); setEditing(null); void load(); }} />
+\frontend\src\components\documents\templates.tsx [73] function TemplateEditor({ schoolId, template, placeholders, onClose, onSaved }: {
+\frontend\src\components\documents\templates.tsx [113] <Modal open={!!template} size="lg" onClose={busy ? () => {} : onClose} title={isNew ? "New certificate" : `Edit ${(template as CertificateTemplate | null)?.name ?? ""}`}
+\frontend\src\components\enquiries\shared.tsx [79] /** New enquiry, or editing an existing one's details. */
+\frontend\src\components\enquiries\shared.tsx [88] const editing = Boolean(enquiry);
+\frontend\src\components\enquiries\shared.tsx [100] if (!open || editing || f.academic_session_id || sessions.length === 0) return;
+\frontend\src\components\enquiries\shared.tsx [104] }, [open, editing, sessions, f.academic_session_id]);
+\frontend\src\components\enquiries\shared.tsx [123] if (!editing && f.status === "follow_up" && !f.follow_up_date) return setError("Choose the follow-up date.");
+\frontend\src\components\enquiries\shared.tsx [124] if (!editing && f.follow_up_date && f.follow_up_date < dayFromToday(0)) return setError("The follow-up date can't be in the past.");
+\frontend\src\components\enquiries\shared.tsx [127] if (!editing) keys.push("academic_session_id", "status", "follow_up_date");
+\frontend\src\components\enquiries\shared.tsx [130] if (!editing) { if (v !== null) body[k] = v; continue; }
+\frontend\src\components\enquiries\shared.tsx [134] if (editing && Object.keys(body).length === 0) { onClose(); return; }
+\frontend\src\components\enquiries\shared.tsx [137] const saved = await apiFetch<EnquiryDetail>(editing ? `/enquiries/${enquiry!.id}` : "/enquiries", { schoolId, method: editing ? "PATCH" : "POST", body });
+\frontend\src\components\enquiries\shared.tsx [143] <Modal open={open} size="lg" onClose={busy ? () => {} : onClose} title={editing ? `Edit ${enquiry!.enquiry_number}` : "New enquiry"}
+\frontend\src\components\enquiries\shared.tsx [144] footer={<><Button variant="secondary" onClick={onClose}>Cancel</Button><Button onClick={save} loading={busy} data-testid="save-enquiry">{editing ? "Save" : "Add enquiry"}</Button></>}>
+\frontend\src\components\enquiries\shared.tsx [155] {!editing && (
+\frontend\src\components\enquiries\shared.tsx [166] {!editing && <>
+\frontend\src\components\exams\marks-entry.tsx [70] const editable = !!sheet?.can_enter;
+\frontend\src\components\exams\marks-entry.tsx [98] {editable && <Button onClick={save} loading={busy} disabled={!dirty} data-testid="save-marks"><Save className="size-4" /> Save marks</Button>}
+\frontend\src\components\exams\marks-entry.tsx [105] {!editable && (
+\frontend\src\components\exams\marks-entry.tsx [127] <input ref={(el) => { inputs.current[i] = el; }} aria-label={`Marks for ${r.full_name}`} inputMode="decimal" disabled={!editable || v.absent}
+\frontend\src\components\exams\marks-entry.tsx [135] <input type="checkbox" className="size-4 accent-leaf-600" aria-label={`${r.full_name} was absent`} disabled={!editable} checked={v.absent}
+\frontend\src\components\exams\marks-entry.tsx [145] {editable && <p className="px-4 py-3 text-xs text-muted">Leave a box empty to clear a student&apos;s entry. Press Enter to move to the next student. Results can be published only when every student has marks or is marked absent.</p>}
+\frontend\src\components\exams\paper-modal.tsx [10] /** Add a paper to the date sheet (for one or several classes at once), or edit one. */
+\frontend\src\components\exams\paper-modal.tsx [11] export function PaperModal({ schoolId, exam, open, editing, onClose, onSaved }: {
+\frontend\src\components\exams\paper-modal.tsx [12] schoolId: string; exam: ExamDetail; open: boolean; editing: ExamPaper | null; onClose: () => void; onSaved: (x: ExamDetail) => void;
+\frontend\src\components\exams\paper-modal.tsx [24] if (editing) {
+\frontend\src\components\exams\paper-modal.tsx [25] setF({ subject: editing.subject_id, date: editing.exam_date, start: editing.start_time, end: editing.end_time, max: editing.max_marks, pass: editing.pass_marks });
+\frontend\src\components\exams\paper-modal.tsx [26] setPicked([editing.class_id]);
+\frontend\src\components\exams\paper-modal.tsx [34] }, [open, editing, schoolId, exam.academic_session_id]);
+\frontend\src\components\exams\paper-modal.tsx [38] if (!editing && picked.length === 0) { setError("Choose at least one class."); return; }
+\frontend\src\components\exams\paper-modal.tsx [48] onSaved(editing
+\frontend\src\components\exams\paper-modal.tsx [49] ? await apiFetch<ExamDetail>(`/exams/${exam.id}/papers/${editing.id}`, { schoolId, method: "PATCH", body })
+\frontend\src\components\exams\paper-modal.tsx [55] <Modal open={open} size="lg" onClose={busy ? () => {} : onClose} title={editing ? `Edit paper · ${editing.class_name}` : "Add paper"}
+\frontend\src\components\exams\paper-modal.tsx [56] description={editing ? undefined : "Add the same paper for several classes at once."}
+\frontend\src\components\exams\paper-modal.tsx [59] {!editing && (
+\frontend\src\components\exams\report-cards-tab.tsx [70] ...(sheet.can_edit_teacher ? { teacher_remarks: vals[s.enrollment_id].teacher } : {}),
+\frontend\src\components\exams\report-cards-tab.tsx [71] ...(sheet.can_edit_principal ? { principal_remarks: vals[s.enrollment_id].principal } : {}),
+\frontend\src\components\exams\report-cards-tab.tsx [81] const editable = !!sheet && (sheet.can_edit_teacher || sheet.can_edit_principal);
+\frontend\src\components\exams\report-cards-tab.tsx [97] {manage && <Link href="/report-cards" className="mb-2.5 text-sm font-medium text-leaf-700 hover:underline">Edit templates</Link>}
+\frontend\src\components\exams\report-cards-tab.tsx [129] <textarea aria-label={`Class teacher's remarks for ${s.full_name}`} rows={2} maxLength={500} disabled={!sheet.can_edit_teacher}
+\frontend\src\components\exams\report-cards-tab.tsx [133] <textarea aria-label={`Principal's remarks for ${s.full_name}`} rows={2} maxLength={500} disabled={!sheet.can_edit_principal}
+\frontend\src\components\exams\report-cards-tab.tsx [135] placeholder={sheet.can_edit_principal ? "" : "Written by the principal's office"} />
+\frontend\src\components\exams\report-cards-tab.tsx [148] {editable ? <Button onClick={save} loading={busy} disabled={!dirty} data-testid="save-remarks">Save remarks</Button>
+\frontend\src\components\exams\shared.tsx [36] export function DateSheet({ papers, onEdit, onDelete, showClass = true, testId = "date-sheet" }: {
+\frontend\src\components\exams\shared.tsx [37] papers: ExamPaper[]; onEdit?: (p: ExamPaper) => void; onDelete?: (p: ExamPaper) => void; showClass?: boolean; testId?: string;
+\frontend\src\components\exams\shared.tsx [51] {papers[0].entered !== undefined && onEdit && <th className="px-4 py-2 text-right">Marks entered</th>}
+\frontend\src\components\exams\shared.tsx [52] {(onEdit || onDelete) && <th className="px-4 py-2"><span className="sr-only">Actions</span></th>}</tr>
+\frontend\src\components\exams\shared.tsx [62] {p.entered !== undefined && onEdit && <td className="tabular px-4 py-2 text-right text-muted">{p.entered}/{p.students}</td>}
+\frontend\src\components\exams\shared.tsx [63] {(onEdit || onDelete) && (
+\frontend\src\components\exams\shared.tsx [65] {onEdit && <button className="rounded p-1.5 text-muted hover:bg-ink/5" aria-label={`Edit ${cname} ${p.subject_name}`} onClick={() => onEdit(p)}><Pencil className="size-4" /></button>}
+\frontend\src\components\fees\cancel-receipt.tsx [50] <form id="cancel-receipt-form" onSubmit={submit} className="space-y-3" noValidate>
+\frontend\src\components\fees\fee-heads-modal.tsx [81] <form onSubmit={add} className="flex items-end gap-2">
+\frontend\src\components\fees\item-modal.tsx [80] <Modal open={open} onClose={busy ? () => {} : onClose} title={item ? `Edit ${item.fee_head_name}` : "Add fee item"}
+\frontend\src\components\homework\homework-form-modal.tsx [20] /** Create (with optional files) or edit a homework / assignment. */
+\frontend\src\components\homework\homework-form-modal.tsx [21] export function HomeworkFormModal({ schoolId, open, onClose, onSaved, editing, defaults }: {
+\frontend\src\components\homework\homework-form-modal.tsx [23] editing?: HomeworkDetail | null; defaults?: { sectionId?: string; kind?: HomeworkKind };
+\frontend\src\components\homework\homework-form-modal.tsx [37] if (editing) {
+\frontend\src\components\homework\homework-form-modal.tsx [38] setF({ section: editing.section_id, kind: editing.kind, subject: editing.subject_id ?? "", title: editing.title, description: editing.description,
+\frontend\src\components\homework\homework-form-modal.tsx [39] due: toLocalInput(editing.due_at), max: editing.max_marks ?? "", late: editing.allow_late });
+\frontend\src\components\homework\homework-form-modal.tsx [45] }, [open, editing, defaults?.sectionId, defaults?.kind, schoolId]);
+\frontend\src\components\homework\homework-form-modal.tsx [49] if (editing || f.subject) return;
+\frontend\src\components\homework\homework-form-modal.tsx [55] }, [f.section, sections, subjects, editing, f.subject]);
+\frontend\src\components\homework\homework-form-modal.tsx [61] if (!editing && !f.section) errs.section = "Choose a class.";
+\frontend\src\components\homework\homework-form-modal.tsx [64] else if (new Date(f.due).getTime() <= Date.now() && (!editing || toLocalInput(editing.due_at) !== f.due)) errs.due = "The deadline must be in the future.";
+\frontend\src\components\homework\homework-form-modal.tsx [74] if (editing) {
+\frontend\src\components\homework\homework-form-modal.tsx [76] if (toLocalInput(editing.due_at) === f.due) delete patch.due_at; // unchanged: don't re-check a deadline that has passed
+\frontend\src\components\homework\homework-form-modal.tsx [77] saved = await apiFetch<HomeworkDetail>(`/homework/${editing.id}`, { schoolId, method: "PATCH", body: patch });
+\frontend\src\components\homework\homework-form-modal.tsx [92] <Modal open={open} size="lg" onClose={busy ? () => {} : onClose} title={editing ? "Edit" : "Set homework or an assignment"}
+\frontend\src\components\homework\homework-form-modal.tsx [93] footer={<><Button variant="secondary" onClick={onClose} disabled={busy}>Cancel</Button><Button onClick={save} loading={busy} data-testid="save-homework">{editing ? "Save" : "Publish"}</Button></>}>
+\frontend\src\components\homework\homework-form-modal.tsx [95] {editing ? (
+\frontend\src\components\homework\homework-form-modal.tsx [96] <p className="text-sm sm:col-span-2"><span className="text-muted">Class:</span> {editing.class_name} – {editing.section_name}</p>
+\frontend\src\components\homework\homework-form-modal.tsx [126] {!editing && (
+\frontend\src\components\hr\admin.tsx [207] const [editing, setEditing] = useState<Parameters<typeof AllowanceModal>[0]["target"]>(null);
+\frontend\src\components\hr\admin.tsx [246] onClick={() => setEditing({ teacherId: s.id, staff: s.full_name, typeId: t.id, type: t.name, standard: t.annual_days, current: c?.allowance ?? null, overridden: Boolean(c?.overridden) })}
+\frontend\src\components\hr\admin.tsx [261] <AllowanceModal schoolId={schoolId} sessionId={d.session.id} target={editing} onClose={() => setEditing(null)} onDone={() => { setEditing(null); toast.success("Allowance saved."); void load(); }} />
+\frontend\src\components\hr\admin.tsx [296] <Modal open={open} title={type ? `Edit ${type.name}` : "Add a leave type"} onClose={busy ? () => {} : onClose}
+\frontend\src\components\hr\admin.tsx [298] <form id="lt-form" onSubmit={save} className="grid gap-4 sm:grid-cols-2" noValidate>
+\frontend\src\components\hr\admin.tsx [322] const [editing, setEditing] = useState<LeaveType | "new" | null>(null);
+\frontend\src\components\hr\admin.tsx [330] action={<Button size="sm" onClick={() => setEditing("new")} data-testid="add-leave-type"><Plus className="size-4" /> Add type</Button>} testId="leave-types">
+\frontend\src\components\hr\admin.tsx [343] <ActionMenu label={`Actions for ${t.name}`} actions={[{ label: "Edit…", onSelect: () => setEditing(t) }]} />
+\frontend\src\components\hr\admin.tsx [348] <TypeFormModal schoolId={schoolId} open={editing !== null} type={editing === "new" ? null : editing} onClose={() => setEditing(null)}
+\frontend\src\components\hr\admin.tsx [349] onSaved={(list) => { setEditing(null); setItems(list); toast.success("Leave type saved."); }} />
+\frontend\src\components\hr\admin.tsx [409] <form onSubmit={addHoliday} className="grid gap-3 border-b border-line p-4 sm:grid-cols-[10rem_1fr_auto] sm:items-end" noValidate>
+\frontend\src\components\inventory\shared.tsx [95] // ------------------------------------------------------------------ add / edit an item
+\frontend\src\components\inventory\shared.tsx [118] const editing = Boolean(item);
+\frontend\src\components\inventory\shared.tsx [139] if (!editing && f.o_quantity.trim()) {
+\frontend\src\components\inventory\shared.tsx [152] ...(editing
+\frontend\src\components\inventory\shared.tsx [156] try { onSaved(await apiFetch<Item>(editing ? `/inventory/items/${item!.id}` : "/inventory/items", { schoolId, method: editing ? "PUT" : "POST", body })); }
+\frontend\src\components\inventory\shared.tsx [161] <Modal open={open} size="lg" title={editing ? `Edit ${item!.name}` : "Add an item"} description={editing ? item!.item_code : undefined} onClose={busy ? () => {} : onClose}
+\frontend\src\components\inventory\shared.tsx [162] footer={<><Button variant="secondary" onClick={onClose} disabled={busy}>Cancel</Button><Button type="submit" form="item-form" loading={busy} data-testid="save-item">{editing ? "Save" : "Add item"}</Button></>}>
+\frontend\src\components\inventory\shared.tsx [163] <form id="item-form" onSubmit={save} className="grid gap-4 sm:grid-cols-2" noValidate>
+\frontend\src\components\inventory\shared.tsx [170] <SelectField label="Counted in" value={f.unit} onChange={set("unit")} disabled={editing && Number(item!.quantity) > 0} data-testid="item-unit">
+\frontend\src\components\inventory\shared.tsx [188] {editing && <>
+\frontend\src\components\inventory\shared.tsx [194] {!editing && (
+\frontend\src\components\inventory\shared.tsx [213] {editing && <p className="text-xs text-muted sm:col-span-2">Quantity changes only through Stock in / Stock out, so every change is in the history. Changes of location, condition and assignee are recorded too.</p>}
+\frontend\src\components\inventory\shared.tsx [287] <p className="text-xs text-muted sm:col-span-2">Stock history can&apos;t be edited. If something was entered wrongly, record an adjustment.</p>
+\frontend\src\components\layout\sidebar.tsx [14] CreditCard,
+\frontend\src\components\layout\sidebar.tsx [82] { href: "/fees/online", label: "Online payments", icon: CreditCard, permission: "fees:view" },
+\frontend\src\components\layout\sidebar.tsx [115] { href: "/admin/plans", label: "Plans", icon: CreditCard, permission: "platform:schools.manage" },
+\frontend\src\components\library\catalogue.tsx [20] title: string; subtitle: string; isbn: string; authors: string; category_id: string; publisher: string; edition: string;
+\frontend\src\components\library\catalogue.tsx [25] title: "", subtitle: "", isbn: "", authors: "", category_id: "", publisher: "", edition: "", publication_year: "", language: "",
+\frontend\src\components\library\catalogue.tsx [29] /** Add a book (with its first copies), or edit one. */
+\frontend\src\components\library\catalogue.tsx [39] const editing = Boolean(book);
+\frontend\src\components\library\catalogue.tsx [46] category_id: book.category_id ?? "", publisher: book.publisher ?? "", edition: book.edition ?? "",
+\frontend\src\components\library\catalogue.tsx [72] category_id, publisher: f.publisher || null, edition: f.edition || null,
+\frontend\src\components\library\catalogue.tsx [89] <Modal open={open} title={editing ? "Edit book" : "Add a book"} onClose={busy ? () => {} : onClose} size="lg"
+\frontend\src\components\library\catalogue.tsx [90] footer={<><Button variant="secondary" onClick={onClose} disabled={busy}>Cancel</Button><Button type="submit" form="book-form" loading={busy} data-testid="save-book">{editing ? "Save" : "Add book"}</Button></>}>
+\frontend\src\components\library\catalogue.tsx [91] <form id="book-form" onSubmit={save} className="grid gap-4 sm:grid-cols-2" noValidate>
+\frontend\src\components\library\catalogue.tsx [106] <TextField label="Edition" value={f.edition} onChange={set("edition")} maxLength={50} />
+\frontend\src\components\library\catalogue.tsx [115] {!editing && (
+\frontend\src\components\library\desk.tsx [141] <form onSubmit={find} className="flex items-end gap-2">
+\frontend\src\components\library\settings.tsx [66] <form onSubmit={save} className="space-y-5 p-5" noValidate>
+\frontend\src\components\library\settings.tsx [103] const [editing, setEditing] = useState<{ id: string; name: string } | null>(null);
+\frontend\src\components\library\settings.tsx [114] if (!editing) return;
+\frontend\src\components\library\settings.tsx [115] try { await apiFetch(`/library/categories/${editing.id}`, { schoolId, method: "PATCH", body: { name: editing.name.trim() } }); setEditing(null); await load(); }
+\frontend\src\components\library\settings.tsx [126] <form onSubmit={add} className="flex items-end gap-2">
+\frontend\src\components\library\settings.tsx [135] {editing?.id === c.id
+\frontend\src\components\library\settings.tsx [136] ? <><input value={editing.name} onChange={(e) => setEditing({ ...editing, name: e.target.value })} aria-label="Category name"
+\frontend\src\components\library\settings.tsx [137] className="h-8 flex-1 rounded-md border border-line px-2 text-sm" /><Button size="sm" onClick={rename}>Save</Button><Button size="sm" variant="ghost" onClick={() => setEditing(null)}>Cancel</Button></>
+\frontend\src\components\library\settings.tsx [139] <Button size="sm" variant="ghost" aria-label={`Rename ${c.name}`} onClick={() => setEditing({ id: c.id, name: c.name })}><Pencil className="size-4" /></Button>
+\frontend\src\components\notifications\templates.tsx [22] function ChannelEditor({ schoolId, ev, channel, t, onSaved }: {
+\frontend\src\components\notifications\templates.tsx [194] <ChannelEditor key={`${ev.key}-${c}`} schoolId={schoolId} ev={ev} channel={c} t={ev.channels[c]!} onSaved={onChange} />
+\frontend\src\components\payments\pay-online.tsx [4] import { CheckCircle2, CreditCard, Loader2, RefreshCw, XCircle } from "lucide-react";
+\frontend\src\components\payments\pay-online.tsx [133] : result.kind === "processing" ? <Loader2 className="size-5 animate-spin text-muted" /> : <CreditCard className="size-5 text-muted" />}
+\frontend\src\components\payments\pay-online.tsx [156] <p className="text-xs text-muted">UPI, debit/credit cards or net banking, through Razorpay. Choose the fees to pay.</p>
+\frontend\src\components\payments\pay-online.tsx [173] <CreditCard className="size-4" /> {busy === "verify" ? "Confirming…" : `Pay ${formatINR((total / 100).toFixed(2))}`}
+\frontend\src\components\payroll\tabs.tsx [53] <form onSubmit={run} className="flex flex-wrap items-end gap-3 p-5" noValidate>
+\frontend\src\components\payroll\tabs.tsx [144] <Modal open={open} title={component ? `Edit ${component.name}` : "Add an allowance or deduction"} onClose={busy ? () => {} : onClose}
+\frontend\src\components\payroll\tabs.tsx [147] <form id="comp-form" onSubmit={save} className="grid gap-4 sm:grid-cols-2" noValidate>
+\frontend\src\components\payroll\tabs.tsx [171] const [editing, setEditing] = useState<Component | "new" | null>(null);
+\frontend\src\components\payroll\tabs.tsx [181] <ActionMenu label={`Actions for ${c.name}`} actions={[{ label: "Edit…", onSelect: () => setEditing(c) }]} />
+\frontend\src\components\payroll\tabs.tsx [188] <div className="flex justify-end"><Button onClick={() => setEditing("new")} data-testid="add-component"><Plus className="size-4" /> Add allowance or deduction</Button></div>
+\frontend\src\components\payroll\tabs.tsx [194] <ComponentModal schoolId={schoolId} open={editing !== null} component={editing === "new" ? null : editing} onClose={() => setEditing(null)}
+\frontend\src\components\payroll\tabs.tsx [195] onSaved={(list) => { setEditing(null); setItems(list); toast.success("Saved."); }} />
+\frontend\src\components\platform\school-account.tsx [3] import { CreditCard, UserPlus } from "lucide-react";
+\frontend\src\components\platform\school-account.tsx [106] <EmptyState icon={CreditCard} title="No plan recorded yet" message="The platform's team hasn't recorded a plan for your school yet. Nothing is limited until they do." />
+\frontend\src\components\platform\school-account.tsx [201] <form id="acct-form" onSubmit={submit} className="space-y-4" noValidate>
+\frontend\src\components\platform\subscription-panel.tsx [3] import { CreditCard, FilePlus2 } from "lucide-react";
+\frontend\src\components\platform\subscription-panel.tsx [48] const [editing, setEditing] = useState(false);
+\frontend\src\components\platform\subscription-panel.tsx [90] <Button size="sm" variant={sub ? "secondary" : "primary"} onClick={() => setEditing(true)} data-testid="change-subscription">
+\frontend\src\components\platform\subscription-panel.tsx [104] <EmptyState icon={CreditCard} title="No subscription yet" message="Start one: choose the plan, monthly or yearly billing, and whether it begins with a trial. Until then nothing is limited." />
+\frontend\src\components\platform\subscription-panel.tsx [155] <SubscriptionModal open={editing} school={school} current={view} onClose={() => setEditing(false)}
+\frontend\src\components\platform\subscription-panel.tsx [156] onSaved={(v) => { setView(v); setEditing(false); }} />
+\frontend\src\components\platform\subscription-panel.tsx [161] onSubmit={async (r) => { if (await run(() => apiFetch(`/admin/invoices/${voiding!.id}/void`, { method: "POST", body: { reason: r } }), "Invoice cancelled.")) setVoiding(null); }} />
+\frontend\src\components\platform\subscription-panel.tsx [236] <form id="sub-form" onSubmit={save} className="grid gap-4 sm:grid-cols-2" noValidate>
+\frontend\src\components\platform\subscription-panel.tsx [304] <form id="pay-form" onSubmit={save} className="space-y-4" noValidate>
+\frontend\src\components\platform\subscription-panel.tsx [340] <form id="refund-form" onSubmit={save} className="space-y-4" noValidate>
+\frontend\src\components\platform\subscription-panel.tsx [349] export function ReasonModal({ open, title, message, label, testId, onClose, onSubmit }: {
+\frontend\src\components\platform\subscription-panel.tsx [350] open: boolean; title: string; message: string; label: string; testId: string; onClose: () => void; onSubmit: (reason: string) => Promise<void>;
+\frontend\src\components\platform\subscription-panel.tsx [360] try { await onSubmit(reason.trim()); } finally { setSaving(false); }
+\frontend\src\components\platform\subscription-panel.tsx [366] <form id={`${testId}-form`} onSubmit={submit} className="space-y-3" noValidate>
+\frontend\src\components\sessions\session-form-modal.tsx [67] async function onSubmit(e: FormEvent) {
+\frontend\src\components\sessions\session-form-modal.tsx [98] title={session ? `Edit ${session.name}` : "New academic session"}
+\frontend\src\components\sessions\session-form-modal.tsx [103] <Button type="submit" form="session-form" loading={saving}>{session ? "Save changes" : "Create session"}</Button>
+\frontend\src\components\sessions\session-form-modal.tsx [107] <form id="session-form" onSubmit={onSubmit} className="grid gap-4 sm:grid-cols-2" noValidate>
+\frontend\src\components\sessions\sessions-manager.tsx [32] const [editing, setEditing] = useState<AcademicSession | null>(null);
+\frontend\src\components\sessions\sessions-manager.tsx [94] <Button onClick={() => { setEditing(null); setFormOpen(true); }}>
+\frontend\src\components\sessions\sessions-manager.tsx [130] { label: "Edit", onSelect: () => { setEditing(s); setFormOpen(true); }, hidden: s.is_archived },
+\frontend\src\components\sessions\sessions-manager.tsx [145] session={editing}
+\frontend\src\components\sessions\sessions-manager.tsx [150] toast.success(editing ? "Session updated." : `${saved.name} created${saved.is_current ? " and set as current" : ""}.`);
+\frontend\src\components\students\documents-panel.tsx [72] <form onSubmit={submit} className="space-y-4" noValidate aria-label="Upload a document">
+\frontend\src\components\students\documents-panel.tsx [152] function EditModal({ doc, base, schoolId, onClose, onSaved }: {
+\frontend\src\components\students\documents-panel.tsx [174] <Modal open size="sm" onClose={busy ? () => {} : onClose} title="Edit document details" description={doc.file_name}
+\frontend\src\components\students\documents-panel.tsx [196] const [editing, setEditing] = useState<StudentDocument | null>(null);
+\frontend\src\components\students\documents-panel.tsx [268] { label: "Edit details", onSelect: () => setEditing(d) },
+\frontend\src\components\students\documents-panel.tsx [295] {editing && (
+\frontend\src\components\students\documents-panel.tsx [296] <EditModal doc={editing} base={base} schoolId={schoolId} onClose={() => setEditing(null)}
+\frontend\src\components\students\documents-panel.tsx [297] onSaved={async (d) => { setEditing(null); toast.success(`${label(d)} saved.`); await load(); }} />
+\frontend\src\components\students\placement-fields.tsx [22] /** Hide the session picker (e.g. when editing an existing enrollment). */
+\frontend\src\components\students\student-form.tsx [24] placement: Placement | null; // null when the student has no enrollment to edit
+\frontend\src\components\students\student-form.tsx [59] mode: "create" | "edit";
+\frontend\src\components\students\student-form.tsx [67] onSubmit: (v: StudentFormValue) => void;
+\frontend\src\components\students\student-form.tsx [71] export function StudentForm({ mode, schoolId, sessions, initial, enrollmentLabel, submitLabel, serverError, saving, onSubmit, onCancel }: Props) {
+\frontend\src\components\students\student-form.tsx [115] onSubmit({ personal, placement, photo });
+\frontend\src\components\students\student-form.tsx [119] <form onSubmit={submit} className="space-y-6" noValidate>
+\frontend\src\components\students\student-form.tsx [180] <Section title={enrollmentLabel ?? "Admission"} description={mode === "edit" ? "Changes apply to this session only." : undefined}>
+\frontend\src\components\students\student-form.tsx [182] errors={errors} lockSession={mode === "edit"} suggestNumber={mode === "create"} />
+\frontend\src\components\teachers\teacher-form-modal.tsx [14] /** Add or edit a teacher. Server-side rules (unique Employee ID / email, valid phone, date) are re-checked by the API. */
+\frontend\src\components\teachers\teacher-form-modal.tsx [65] <Modal open={open} size="lg" onClose={busy ? () => {} : onClose} title={teacher ? `Edit ${teacher.full_name}` : "Add teacher"}
+\frontend\src\components\teachers\teacher-form-modal.tsx [66] footer={<><Button variant="secondary" onClick={onClose} disabled={busy}>Cancel</Button><Button onClick={save} loading={busy} data-testid="save-teacher">{teacher ? "Save" : "Add teacher"}</Button></>}>
+\frontend\src\components\timetable\setup-tab.tsx [161] <button className="rounded p-1.5 text-muted hover:bg-ink/5" aria-label={`Edit ${periodName(p)}`}
+\frontend\src\components\timetable\setup-tab.tsx [201] <Modal open={!!form} title={form?.id ? "Edit period" : "Add period"} onClose={() => setForm(null)}
+\frontend\src\components\timetable\slot-editor.tsx [19] export function SlotEditor({ schoolId, sectionId, slot, subjects, teachers, onClose, onSaved }: {
+\frontend\src\components\transport\fleet.tsx [68] <Modal open={open} size="lg" title={vehicle ? `Edit ${showReg(vehicle.registration_number)}` : "Add a vehicle"} onClose={busy ? () => {} : onClose}
+\frontend\src\components\transport\fleet.tsx [70] <form id="vehicle-form" onSubmit={save} className="grid gap-4 sm:grid-cols-2" noValidate>
+\frontend\src\components\transport\fleet.tsx [185] <Modal open={open} size="lg" title={person ? `Edit ${person.full_name}` : driver ? "Add a driver" : "Add an attendant"} onClose={busy ? () => {} : onClose}
+\frontend\src\components\transport\fleet.tsx [187] <form id="staff-form" onSubmit={save} className="grid gap-4 sm:grid-cols-2" noValidate>
+\frontend\src\components\transport\routes.tsx [58] <Modal open={open} size="lg" title={route ? `Edit ${route.name}` : "Add a route"} onClose={busy ? () => {} : onClose}
+\frontend\src\components\transport\routes.tsx [60] <form id="route-form" onSubmit={save} className="grid gap-4 sm:grid-cols-2" noValidate>
+\frontend\src\components\transport\routes.tsx [173] <Modal open={open} title={stop ? `Edit stop: ${stop.name}` : "Add a stop"} onClose={busy ? () => {} : onClose}
+\frontend\src\components\transport\routes.tsx [175] <form id="stop-form" onSubmit={save} className="grid gap-4 sm:grid-cols-2" noValidate>
+\frontend\src\components\transport\routes.tsx [223] <Modal open={open} size="lg" title={zone ? `Edit ${zone.name}` : "Add a fare zone"} onClose={busy ? () => {} : onClose}
+\frontend\src\components\transport\routes.tsx [226] <form id="zone-form" onSubmit={save} className="grid gap-4 sm:grid-cols-2" noValidate>
+\frontend\src\components\transport\routes.tsx [271] const [editing, setEditing] = useState<Zone | "new" | null>(null);
+\frontend\src\components\transport\routes.tsx [282] {manage && <Button size="sm" onClick={() => setEditing("new")} data-testid="add-zone"><Plus className="size-4" /> Add zone</Button>}
+\frontend\src\components\transport\routes.tsx [297] {manage && <ActionMenu label={`Actions for ${z.name}`} actions={[{ label: "Edit…", onSelect: () => setEditing(z) }]} />}
+\frontend\src\components\transport\routes.tsx [302] <ZoneFormModal schoolId={schoolId} open={editing !== null} zone={editing === "new" ? null : editing} onClose={() => setEditing(null)}
+\frontend\src\components\transport\routes.tsx [303] onSaved={(list) => { setEditing(null); setItems(list); toast.success("Fare zone saved."); }} />
+\frontend\src\components\transport\shared.tsx [144] <form id="tdoc-form" onSubmit={submit} className="grid gap-4 sm:grid-cols-2" noValidate>
+\frontend\src\components\transport\shared.tsx [165] function EditDocModal({ schoolId, doc, onClose, onDone }: { schoolId: string; doc: TransportDoc | null; onClose: () => void; onDone: (docs: TransportDoc[]) => void }) {
+\frontend\src\components\transport\shared.tsx [187] <Modal open size="sm" title={`Edit ${docName(doc)}`} description={doc.file_name} onClose={busy ? () => {} : onClose}
+\frontend\src\components\transport\shared.tsx [195] <TextField label="Valid until" type="date" value={valid} onChange={(e) => setValid(e.target.value)} data-testid="edit-valid-until" />
+\frontend\src\components\transport\shared.tsx [242] const [editing, setEditing] = useState<TransportDoc | null>(null);
+\frontend\src\components\transport\shared.tsx [290] { label: "Edit details", onSelect: () => setEditing(d) },
+\frontend\src\components\transport\shared.tsx [300] <EditDocModal schoolId={schoolId} doc={editing} onClose={() => setEditing(null)} onDone={(list) => { setEditing(null); onChange(list); toast.success("Saved."); }} />
+\frontend\src\components\transport\shared.tsx [433] export function EditAssignmentModal({ schoolId, assignment, onClose, onDone }: { schoolId: string; assignment: Assignment | null; onClose: () => void; onDone: () => void }) {
+\frontend\src\components\transport\shared.tsx [453] <Modal open title={`Edit ${assignment.student_name}'s transport`} description={`${assignment.route_name} · from ${formatDate(assignment.start_date)}`} onClose={busy ? () => {} : onClose}
+\frontend\src\components\transport\shared.tsx [459] <SelectField label="Stop" value={stop} onChange={(e) => setStop(e.target.value)} data-testid="edit-stop">
+\frontend\src\components\transport\shared.tsx [467] <input type="checkbox" className="size-4 accent-leaf-600" checked={charge} onChange={(e) => setCharge(e.target.checked)} data-testid="edit-charge" /> Charge the transport fee
+\frontend\src\components\transport\students.tsx [18] import { AssignModal, AssignmentPeriod, EditAssignmentModal, EndAssignmentModal, Pill } from "./shared";
+\frontend\src\components\transport\students.tsx [23] /** One student on a route: who, where, when, what it costs, and (for admins) Move / Edit / Stop. */
+\frontend\src\components\transport\students.tsx [29] const [modal, setModal] = useState<"move" | "edit" | "end" | null>(null);
+\frontend\src\components\transport\students.tsx [54] { label: "Edit stop, trip or fee…", onSelect: () => setModal("edit") },
+\frontend\src\components\transport\students.tsx [60] <EditAssignmentModal schoolId={schoolId} assignment={modal === "edit" ? a : null} onClose={() => setModal(null)} onDone={() => { setModal(null); toast.success("Saved."); onChange(); }} />
+\frontend\src\lib\documents.ts [125] /** Splits wording into the pieces shown in the editor preview: {{key}} chips and plain text. */
+\frontend\src\lib\library.ts [24] id: string; title: string; subtitle: string | null; isbn: string | null; publisher: string | null; edition: string | null;
+\frontend\src\lib\types.ts [8] | "students:manage"
+\frontend\src\lib\types.ts [10] | "classes:manage"
+\frontend\src\lib\types.ts [28] | "teachers:manage"
+\frontend\src\lib\types.ts [493] editable: boolean;
+\frontend\src\lib\types.ts [689] export interface RemarksSheet { exam: ExamDetail; section: { id: string; label: string }; can_edit_teacher: boolean; can_edit_principal: boolean; students: RemarksRow[] }
+
+=== BACKEND API ENDPOINTS ===
+\backend\app\api\v1\routes\admin.py [56] @router.get("/stats", response_model=PlatformStats)
+\backend\app\api\v1\routes\admin.py [68] @router.get("/schools", response_model=SchoolList)
+\backend\app\api\v1\routes\admin.py [133] @router.post("/schools", response_model=SchoolOut, status_code=status.HTTP_201_CREATED)
+\backend\app\api\v1\routes\admin.py [154] @router.get("/schools/{school_id}", response_model=SchoolOut)
+\backend\app\api\v1\routes\admin.py [166] @router.patch("/schools/{school_id}", response_model=SchoolOut)
+\backend\app\api\v1\routes\admin.py [203] @router.post("/schools/{school_id}/admins", response_model=InviteAdminOut, status_code=status.HTTP_201_CREATED)
+\backend\app\api\v1\routes\admin.py [256] @router.get("/schools/{school_id}/admins", response_model=list[SchoolAdminOut])
+\backend\app\api\v1\routes\admin.py [274] @router.post("/schools/{school_id}/logo", response_model=SchoolOut)
+\backend\app\api\v1\routes\admin.py [323] @router.delete("/schools/{school_id}/logo", response_model=SchoolOut)
+\backend\app\api\v1\routes\admissions.py [137] @router.get("/windows")
+\backend\app\api\v1\routes\admissions.py [177] @router.put("/windows")
+\backend\app\api\v1\routes\admissions.py [246] @router.get("")
+\backend\app\api\v1\routes\admissions.py [407] @router.get("/{app_id}")
+\backend\app\api\v1\routes\admissions.py [424] @router.get("/{app_id}/photo")
+\backend\app\api\v1\routes\admissions.py [433] @router.get("/{app_id}/documents/{doc_id}")
+\backend\app\api\v1\routes\admissions.py [475] @router.patch("/{app_id}")
+\backend\app\api\v1\routes\admissions.py [512] @router.post("/{app_id}/status")
+\backend\app\api\v1\routes\admissions.py [543] @router.post("/{app_id}/fee")
+\backend\app\api\v1\routes\admissions.py [590] @router.get("/{app_id}/fee-receipt.pdf")
+\backend\app\api\v1\routes\admissions.py [636] @router.post("/{app_id}/enroll")
+\backend\app\api\v1\routes\analytics.py [61] @router.get("/students")
+\backend\app\api\v1\routes\analytics.py [81] @router.get("/fees")
+\backend\app\api\v1\routes\analytics.py [102] @router.get("/admissions")
+\backend\app\api\v1\routes\attendance.py [117] @router.get("/roster", response_model=Roster)
+\backend\app\api\v1\routes\attendance.py [127] @router.put("/roster", response_model=SaveResult)
+\backend\app\api\v1\routes\attendance.py [171] @router.get("/daily", response_model=Daily)
+\backend\app\api\v1\routes\attendance.py [235] @router.get("/monthly", response_model=Monthly)
+\backend\app\api\v1\routes\attendance.py [284] @router.get("/class", response_model=ClassReport)
+\backend\app\api\v1\routes\attendance.py [326] @router.get("/students/{student_id}", response_model=StudentAttendance)
+\backend\app\api\v1\routes\audit.py [168] @router.get("/audit")
+\backend\app\api\v1\routes\audit.py [197] @router.get("/audit/export")
+\backend\app\api\v1\routes\audit.py [240] @router.get("/admin/audit")
+\backend\app\api\v1\routes\audit.py [271] @router.get("/admin/audit/export")
+\backend\app\api\v1\routes\audit.py [318] @router.post("/auth/events", status_code=status.HTTP_200_OK)
+\backend\app\api\v1\routes\billing.py [203] @router.get("/admin/billing/settings")
+\backend\app\api\v1\routes\billing.py [218] @router.put("/admin/billing/settings")
+\backend\app\api\v1\routes\billing.py [247] @router.post("/admin/billing/run")
+\backend\app\api\v1\routes\billing.py [259] @router.get("/admin/billing/webhook-events")
+\backend\app\api\v1\routes\billing.py [266] @router.get("/admin/invoices")
+\backend\app\api\v1\routes\billing.py [316] @router.get("/admin/invoices/{invoice_id}/pdf")
+\backend\app\api\v1\routes\billing.py [345] @router.post("/admin/invoices/{invoice_id}/payments", status_code=status.HTTP_201_CREATED)
+\backend\app\api\v1\routes\billing.py [379] @router.post("/admin/invoices/{invoice_id}/void")
+\backend\app\api\v1\routes\billing.py [406] @router.post("/admin/payments/{payment_id}/refund")
+\backend\app\api\v1\routes\billing.py [481] @router.get("/admin/schools/{school_id}/subscription")
+\backend\app\api\v1\routes\billing.py [488] @router.put("/admin/schools/{school_id}/subscription")
+\backend\app\api\v1\routes\billing.py [637] @router.post("/admin/schools/{school_id}/subscription/cancel")
+\backend\app\api\v1\routes\billing.py [649] @router.post("/admin/schools/{school_id}/invoices", status_code=status.HTTP_201_CREATED)
+\backend\app\api\v1\routes\billing.py [680] @router.get("/school/billing")
+\backend\app\api\v1\routes\billing.py [698] @router.post("/school/billing/cancel")
+\backend\app\api\v1\routes\billing.py [706] @router.get("/school/billing/invoices/{invoice_id}/pdf")
+\backend\app\api\v1\routes\billing.py [713] @router.post("/school/billing/invoices/{invoice_id}/pay")
+\backend\app\api\v1\routes\billing.py [815] @router.post("/school/billing/payments/verify")
+\backend\app\api\v1\routes\billing.py [865] @router.post("/billing/webhooks/razorpay", include_in_schema=False)
+\backend\app\api\v1\routes\certificates.py [474] @router.get("/placeholders")
+\backend\app\api\v1\routes\certificates.py [479] @router.get("/templates")
+\backend\app\api\v1\routes\certificates.py [498] @router.post("/templates", status_code=status.HTTP_201_CREATED)
+\backend\app\api\v1\routes\certificates.py [531] @router.put("/templates/{template_id}")
+\backend\app\api\v1\routes\certificates.py [567] @router.delete("/templates/{template_id}", status_code=status.HTTP_204_NO_CONTENT)
+\backend\app\api\v1\routes\certificates.py [641] @router.post("/preview")
+\backend\app\api\v1\routes\certificates.py [717] @router.post("", response_model=CertificateOut, status_code=status.HTTP_201_CREATED)
+\backend\app\api\v1\routes\certificates.py [769] @router.get("")
+\backend\app\api\v1\routes\certificates.py [837] @router.get("/{cert_id}", response_model=CertificateOut)
+\backend\app\api\v1\routes\certificates.py [852] @router.post("/{cert_id}/revoke", response_model=CertificateOut)
+\backend\app\api\v1\routes\certificates.py [886] @router.get("/{cert_id}/certificate.pdf")
+\backend\app\api\v1\routes\classes.py [103] @router.get("", response_model=ClassList)
+\backend\app\api\v1\routes\classes.py [125] @router.post("", response_model=ClassOut, status_code=status.HTTP_201_CREATED)
+\backend\app\api\v1\routes\classes.py [161] @router.post("/bulk", response_model=BulkResult, status_code=status.HTTP_201_CREATED)
+\backend\app\api\v1\routes\classes.py [205] @router.patch("/{class_id}", response_model=ClassOut)
+\backend\app\api\v1\routes\classes.py [242] @router.delete("/{class_id}", response_model=ClassOut)
+\backend\app\api\v1\routes\classes.py [272] @router.post("/{class_id}/restore", response_model=ClassOut)
+\backend\app\api\v1\routes\collection.py [72] @router.get("/fee-collection/students", response_model=StudentBalanceList)
+\backend\app\api\v1\routes\collection.py [299] @router.get("/fee-collection/students/{student_id}", response_model=StudentFeeAccount)
+\backend\app\api\v1\routes\collection.py [324] @router.put("/fee-collection/enrollments/{enrollment_id}/optins", response_model=StudentFeeAccount)
+\backend\app\api\v1\routes\collection.py [445] @router.post(
+\backend\app\api\v1\routes\collection.py [493] @router.post("/fee-payments/{payment_id}/cancel", response_model=PaymentDetail)
+\backend\app\api\v1\routes\collection.py [516] @router.get("/fee-payments/{payment_id}", response_model=PaymentDetail)
+\backend\app\api\v1\routes\collection.py [546] @router.get("/fee-payments/{payment_id}/receipt.pdf")
+\backend\app\api\v1\routes\collection.py [620] @router.get("/fee-payments")
+\backend\app\api\v1\routes\dashboard.py [90] @router.get("", response_model=Dashboard)
+\backend\app\api\v1\routes\documents.py [72] @router.get("", response_model=list[DocumentOut])
+\backend\app\api\v1\routes\documents.py [86] @router.post("", response_model=DocumentOut, status_code=status.HTTP_201_CREATED)
+\backend\app\api\v1\routes\documents.py [159] @router.get("/{doc_id}/file")
+\backend\app\api\v1\routes\documents.py [198] @router.patch("/{doc_id}", response_model=DocumentOut)
+\backend\app\api\v1\routes\documents.py [233] @router.delete("/{doc_id}", status_code=status.HTTP_204_NO_CONTENT)
+\backend\app\api\v1\routes\enquiries.py [311] @router.get("")
+\backend\app\api\v1\routes\enquiries.py [364] @router.get("/export.csv")
+\backend\app\api\v1\routes\enquiries.py [416] @router.get("/pipeline")
+\backend\app\api\v1\routes\enquiries.py [552] @router.get("/follow-ups/summary")
+\backend\app\api\v1\routes\enquiries.py [569] @router.get("/duplicates")
+\backend\app\api\v1\routes\enquiries.py [585] @router.post("", status_code=status.HTTP_201_CREATED)
+\backend\app\api\v1\routes\enquiries.py [628] @router.get("/{enquiry_id}")
+\backend\app\api\v1\routes\enquiries.py [633] @router.patch("/{enquiry_id}")
+\backend\app\api\v1\routes\enquiries.py [681] @router.delete("/{enquiry_id}", status_code=status.HTTP_204_NO_CONTENT)
+\backend\app\api\v1\routes\enquiries.py [711] @router.get("/{enquiry_id}/application-candidates")
+\backend\app\api\v1\routes\exams.py [266] @router.get("/setup")
+\backend\app\api\v1\routes\exams.py [292] @router.post("/types", status_code=status.HTTP_201_CREATED)
+\backend\app\api\v1\routes\exams.py [310] @router.post("/types/standard", status_code=status.HTTP_201_CREATED)
+\backend\app\api\v1\routes\exams.py [325] @router.patch("/types/{type_id}")
+\backend\app\api\v1\routes\exams.py [356] @router.put("/grades")
+\backend\app\api\v1\routes\exams.py [378] @router.post("/grades/standard")
+\backend\app\api\v1\routes\exams.py [385] @router.get("")
+\backend\app\api\v1\routes\exams.py [436] @router.post("", status_code=status.HTTP_201_CREATED)
+\backend\app\api\v1\routes\exams.py [459] @router.get("/{exam_id}")
+\backend\app\api\v1\routes\exams.py [465] @router.patch("/{exam_id}")
+\backend\app\api\v1\routes\exams.py [494] @router.delete("/{exam_id}", status_code=status.HTTP_204_NO_CONTENT)
+\backend\app\api\v1\routes\exams.py [508] @router.post("/{exam_id}/status")
+\backend\app\api\v1\routes\exams.py [538] @router.post("/{exam_id}/papers", status_code=status.HTTP_201_CREATED)
+\backend\app\api\v1\routes\exams.py [576] @router.patch("/{exam_id}/papers/{paper_id}")
+\backend\app\api\v1\routes\exams.py [611] @router.delete("/{exam_id}/papers/{paper_id}")
+\backend\app\api\v1\routes\exams.py [633] @router.get("/{exam_id}/sections")
+\backend\app\api\v1\routes\exams.py [673] @router.get("/{exam_id}/papers/{paper_id}/marks")
+\backend\app\api\v1\routes\exams.py [725] @router.put("/{exam_id}/papers/{paper_id}/marks")
+\backend\app\api\v1\routes\exams.py [897] @router.get("/{exam_id}/results")
+\backend\app\api\v1\routes\exams.py [934] @router.get("/{exam_id}/results/pdf")
+\backend\app\api\v1\routes\exams.py [947] @router.get("/{exam_id}/results/report-cards.pdf")
+\backend\app\api\v1\routes\exams.py [974] @router.get("/class-schedule/{section_id}")
+\backend\app\api\v1\routes\exams.py [1101] @router.get("/{exam_id}/remarks")
+\backend\app\api\v1\routes\exams.py [1147] @router.put("/{exam_id}/remarks")
+\backend\app\api\v1\routes\fees.py [299] @router.get("", response_model=FeeStructureList)
+\backend\app\api\v1\routes\fees.py [336] @router.get("/{structure_id}", response_model=FeeStructureDetail)
+\backend\app\api\v1\routes\fees.py [355] @router.post("", response_model=FeeStructureDetail, status_code=status.HTTP_201_CREATED)
+\backend\app\api\v1\routes\fees.py [383] @router.patch("/{structure_id}", response_model=FeeStructureDetail)
+\backend\app\api\v1\routes\fees.py [416] @router.delete("/{structure_id}", status_code=status.HTTP_204_NO_CONTENT)
+\backend\app\api\v1\routes\fees.py [469] @router.post("/{structure_id}/items", response_model=FeeStructureDetail, status_code=status.HTTP_201_CREATED)
+\backend\app\api\v1\routes\fees.py [505] @router.patch("/{structure_id}/items/{item_id}", response_model=FeeStructureDetail)
+\backend\app\api\v1\routes\fees.py [560] @router.delete("/{structure_id}/items/{item_id}", response_model=FeeStructureDetail)
+\backend\app\api\v1\routes\fees.py [594] @router.post("/{structure_id}/copy", response_model=CopyResult, status_code=status.HTTP_201_CREATED)
+\backend\app\api\v1\routes\guardians.py [68] @router.get("", response_model=list[GuardianOut])
+\backend\app\api\v1\routes\guardians.py [74] @router.post("", response_model=list[GuardianOut], status_code=status.HTTP_201_CREATED)
+\backend\app\api\v1\routes\guardians.py [141] @router.delete("/{guardian_id}", response_model=list[GuardianOut])
+\backend\app\api\v1\routes\health.py [21] @router.get("/health")
+\backend\app\api\v1\routes\health.py [26] @router.get("/health/ready")
+\backend\app\api\v1\routes\homework.py [364] @router.get("/sections")
+\backend\app\api\v1\routes\homework.py [387] @router.get("", response_model=HomeworkList)
+\backend\app\api\v1\routes\homework.py [448] @router.post("", response_model=HomeworkDetail, status_code=status.HTTP_201_CREATED)
+\backend\app\api\v1\routes\homework.py [508] @router.get("/{homework_id}", response_model=HomeworkDetail)
+\backend\app\api\v1\routes\homework.py [515] @router.patch("/{homework_id}", response_model=HomeworkDetail)
+\backend\app\api\v1\routes\homework.py [550] @router.delete("/{homework_id}", status_code=status.HTTP_204_NO_CONTENT)
+\backend\app\api\v1\routes\homework.py [584] @router.post("/{homework_id}/attachments", response_model=HomeworkDetail, status_code=status.HTTP_201_CREATED)
+\backend\app\api\v1\routes\homework.py [630] @router.delete("/{homework_id}/attachments/{file_id}", response_model=HomeworkDetail)
+\backend\app\api\v1\routes\homework.py [680] @router.get("/{homework_id}/attachments/{file_id}")
+\backend\app\api\v1\routes\homework.py [693] @router.get("/{homework_id}/submissions", response_model=list[RosterRow])
+\backend\app\api\v1\routes\homework.py [755] @router.get("/{homework_id}/submissions/{submission_id}", response_model=SubmissionOut)
+\backend\app\api\v1\routes\homework.py [763] @router.put("/{homework_id}/submissions/{submission_id}/review", response_model=SubmissionOut)
+\backend\app\api\v1\routes\homework.py [826] @router.get("/{homework_id}/submissions/{submission_id}/files/{file_id}")
+\backend\app\api\v1\routes\hr.py [119] @router.get("/settings")
+\backend\app\api\v1\routes\hr.py [124] @router.put("/settings")
+\backend\app\api\v1\routes\hr.py [156] @router.get("/holidays")
+\backend\app\api\v1\routes\hr.py [174] @router.post("/holidays", status_code=status.HTTP_201_CREATED)
+\backend\app\api\v1\routes\hr.py [198] @router.delete("/holidays/{holiday_id}")
+\backend\app\api\v1\routes\hr.py [246] @router.get("/leave-types")
+\backend\app\api\v1\routes\hr.py [260] @router.post("/leave-types", status_code=status.HTTP_201_CREATED)
+\backend\app\api\v1\routes\hr.py [286] @router.put("/leave-types/{type_id}")
+\backend\app\api\v1\routes\hr.py [433] @router.get("/leave-days")
+\backend\app\api\v1\routes\hr.py [452] @router.get("/my")
+\backend\app\api\v1\routes\hr.py [502] @router.post("/my/leave", status_code=status.HTTP_201_CREATED)
+\backend\app\api\v1\routes\hr.py [511] @router.post("/leave/{leave_id}/cancel")
+\backend\app\api\v1\routes\hr.py [534] @router.get("/leave")
+\backend\app\api\v1\routes\hr.py [597] @router.post("/leave", status_code=status.HTTP_201_CREATED)
+\backend\app\api\v1\routes\hr.py [606] @router.post("/leave/{leave_id}/decide")
+\backend\app\api\v1\routes\hr.py [632] @router.get("/staff")
+\backend\app\api\v1\routes\hr.py [645] @router.get("/balances")
+\backend\app\api\v1\routes\hr.py [704] @router.put("/allocations")
+\backend\app\api\v1\routes\hr.py [745] @router.get("/staff/{teacher_id}/leave")
+\backend\app\api\v1\routes\hr.py [805] @router.get("/attendance")
+\backend\app\api\v1\routes\hr.py [853] @router.put("/attendance")
+\backend\app\api\v1\routes\hr.py [890] @router.get("/attendance/month")
+\backend\app\api\v1\routes\id_cards.py [61] @router.get("/people")
+\backend\app\api\v1\routes\id_cards.py [249] @router.post("/print")
+\backend\app\api\v1\routes\id_cards.py [342] @router.get("")
+\backend\app\api\v1\routes\id_cards.py [415] @router.post("/{card_id}/revoke", response_model=CardOut)
+\backend\app\api\v1\routes\id_cards.py [441] @router.get("/{card_id}/card.pdf")
+\backend\app\api\v1\routes\inventory.py [205] @router.get("/dashboard")
+\backend\app\api\v1\routes\inventory.py [295] @router.get("/items")
+\backend\app\api\v1\routes\inventory.py [350] @router.get("/items/{item_id}")
+\backend\app\api\v1\routes\inventory.py [377] @router.post("/items", status_code=status.HTTP_201_CREATED)
+\backend\app\api\v1\routes\inventory.py [410] @router.put("/items/{item_id}")
+\backend\app\api\v1\routes\inventory.py [445] @router.delete("/items/{item_id}")
+\backend\app\api\v1\routes\inventory.py [477] @router.post("/items/{item_id}/stock", status_code=status.HTTP_201_CREATED)
+\backend\app\api\v1\routes\inventory.py [609] @router.get("/items/{item_id}/history")
+\backend\app\api\v1\routes\inventory.py [621] @router.get("/movements")
+\backend\app\api\v1\routes\inventory.py [656] @router.get("/locations")
+\backend\app\api\v1\routes\inventory.py [668] @router.get("/staff")
+\backend\app\api\v1\routes\inventory.py [682] @router.get("/mine")
+\backend\app\api\v1\routes\library.py [121] @router.get("/settings")
+\backend\app\api\v1\routes\library.py [126] @router.put("/settings")
+\backend\app\api\v1\routes\library.py [158] @router.get("/dashboard")
+\backend\app\api\v1\routes\library.py [174] @router.get("/categories")
+\backend\app\api\v1\routes\library.py [189] @router.post("/categories", status_code=status.HTTP_201_CREATED)
+\backend\app\api\v1\routes\library.py [203] @router.patch("/categories/{category_id}")
+\backend\app\api\v1\routes\library.py [218] @router.delete("/categories/{category_id}")
+\backend\app\api\v1\routes\library.py [238] @router.get("/authors")
+\backend\app\api\v1\routes\library.py [371] @router.get("/books")
+\backend\app\api\v1\routes\library.py [473] @router.get("/books/{book_id}")
+\backend\app\api\v1\routes\library.py [478] @router.post("/books", status_code=status.HTTP_201_CREATED)
+\backend\app\api\v1\routes\library.py [528] @router.put("/books/{book_id}")
+\backend\app\api\v1\routes\library.py [547] @router.delete("/books/{book_id}")
+\backend\app\api\v1\routes\library.py [589] @router.post("/books/{book_id}/copies", status_code=status.HTTP_201_CREATED)
+\backend\app\api\v1\routes\library.py [630] @router.patch("/copies/{copy_id}")
+\backend\app\api\v1\routes\library.py [653] @router.post("/copies/{copy_id}/status")
+\backend\app\api\v1\routes\library.py [680] @router.delete("/copies/{copy_id}")
+\backend\app\api\v1\routes\library.py [697] @router.get("/copies/lookup")
+\backend\app\api\v1\routes\library.py [745] @router.get("/borrowers")
+\backend\app\api\v1\routes\library.py [755] @router.get("/borrowers/{kind}/{borrower_id}")
+\backend\app\api\v1\routes\library.py [942] @router.get("/loans")
+\backend\app\api\v1\routes\library.py [964] @router.get("/loans/{loan_id}")
+\backend\app\api\v1\routes\library.py [986] @router.post("/loans", status_code=status.HTTP_201_CREATED)
+\backend\app\api\v1\routes\library.py [1019] @router.post("/loans/{loan_id}/return")
+\backend\app\api\v1\routes\library.py [1039] @router.post("/loans/{loan_id}/renew")
+\backend\app\api\v1\routes\library.py [1054] @router.post("/loans/{loan_id}/collect")
+\backend\app\api\v1\routes\library.py [1089] @router.post("/loans/{loan_id}/waive")
+\backend\app\api\v1\routes\library.py [1113] @router.get("/my-loans")
+\backend\app\api\v1\routes\me.py [44] @router.get("/me", response_model=MeOut)
+\backend\app\api\v1\routes\me.py [49] @router.patch("/me", response_model=MeOut)
+\backend\app\api\v1\routes\my.py [36] @router.get("", response_model=portal.ChildProfile)
+\backend\app\api\v1\routes\my.py [43] @router.get("/attendance")
+\backend\app\api\v1\routes\my.py [50] @router.get("/fees", response_model=portal.ChildFees)
+\backend\app\api\v1\routes\my.py [57] @router.get("/payments/{payment_id}/receipt.pdf")
+\backend\app\api\v1\routes\my.py [67] @router.get("/timetable")
+\backend\app\api\v1\routes\my.py [74] @router.get("/timetable/pdf")
+\backend\app\api\v1\routes\my.py [82] @router.get("/homework")
+\backend\app\api\v1\routes\my.py [94] @router.get("/homework/{homework_id}", response_model=hw.StudentHomeworkDetail)
+\backend\app\api\v1\routes\my.py [104] @router.post("/homework/{homework_id}/submission", response_model=hw.StudentHomeworkDetail)
+\backend\app\api\v1\routes\my.py [117] @router.delete("/homework/{homework_id}/submission/files/{file_id}", response_model=hw.StudentHomeworkDetail)
+\backend\app\api\v1\routes\my.py [129] @router.get("/homework/{homework_id}/attachments/{file_id}")
+\backend\app\api\v1\routes\my.py [142] @router.get("/homework/{homework_id}/files/{file_id}")
+\backend\app\api\v1\routes\my.py [155] @router.get("/exams")
+\backend\app\api\v1\routes\my.py [164] @router.get("/exams/{exam_id}/report-card.pdf")
+\backend\app\api\v1\routes\my.py [176] @router.get("/library")
+\backend\app\api\v1\routes\my.py [183] @router.get("/transport")
+\backend\app\api\v1\routes\notices.py [89] @router.get("", response_model=list[NoticeOut])
+\backend\app\api\v1\routes\notices.py [121] @router.post("", response_model=NoticeOut, status_code=status.HTTP_201_CREATED)
+\backend\app\api\v1\routes\notices.py [167] @router.put("/{notice_id}", response_model=NoticeOut)
+\backend\app\api\v1\routes\notices.py [213] @router.delete("/{notice_id}", status_code=status.HTTP_204_NO_CONTENT)
+\backend\app\api\v1\routes\notifications.py [41] @router.get("")
+\backend\app\api\v1\routes\notifications.py [88] @router.get("/unread-count")
+\backend\app\api\v1\routes\notifications.py [101] @router.post("/read-all")
+\backend\app\api\v1\routes\notifications.py [115] @router.post("/{notification_id}/read")
+\backend\app\api\v1\routes\notifications.py [143] @router.get("/preferences")
+\backend\app\api\v1\routes\notifications.py [155] @router.put("/preferences")
+\backend\app\api\v1\routes\notifications.py [177] @router.post("/fee-reminders")
+\backend\app\api\v1\routes\notifications.py [219] @router.get("/admin/events")
+\backend\app\api\v1\routes\notifications.py [284] @router.put("/admin/templates/{event_key}/{channel}")
+\backend\app\api\v1\routes\notifications.py [334] @router.delete("/admin/templates/{event_key}/{channel}")
+\backend\app\api\v1\routes\notifications.py [363] @router.post("/admin/preview")
+\backend\app\api\v1\routes\notifications.py [443] @router.get("/admin/settings")
+\backend\app\api\v1\routes\notifications.py [448] @router.put("/admin/settings")
+\backend\app\api\v1\routes\notifications.py [537] @router.get("/admin/channels")
+\backend\app\api\v1\routes\notifications.py [616] @router.put("/admin/channels/sms")
+\backend\app\api\v1\routes\notifications.py [632] @router.put("/admin/channels/whatsapp", dependencies=[Depends(require_feature("whatsapp"))])
+\backend\app\api\v1\routes\notifications.py [654] @router.post("/admin/test")
+\backend\app\api\v1\routes\notifications.py [680] @router.get("/admin/history")
+\backend\app\api\v1\routes\notifications.py [741] @router.get("/admin/history/{event_id}")
+\backend\app\api\v1\routes\notifications.py [796] @router.post("/admin/deliveries/{delivery_id}/retry")
+\backend\app\api\v1\routes\notifications.py [833] @router.post("/webhooks/twilio/{school_id}", include_in_schema=False)
+\backend\app\api\v1\routes\notifications.py [854] @router.get("/webhooks/whatsapp/{school_id}", include_in_schema=False)
+\backend\app\api\v1\routes\notifications.py [864] @router.post("/webhooks/whatsapp/{school_id}", include_in_schema=False)
+\backend\app\api\v1\routes\payments.py [162] @router.get("/settings")
+\backend\app\api\v1\routes\payments.py [167] @router.put("/settings")
+\backend\app\api\v1\routes\payments.py [209] @router.get("/config")
+\backend\app\api\v1\routes\payments.py [222] @router.post("/orders", status_code=status.HTTP_201_CREATED)
+\backend\app\api\v1\routes\payments.py [325] @router.post("/{op_id}/verify")
+\backend\app\api\v1\routes\payments.py [397] @router.post("/{op_id}/check")
+\backend\app\api\v1\routes\payments.py [481] @router.get("/students/{student_id}")
+\backend\app\api\v1\routes\payments.py [516] @router.get("/{op_id}")
+\backend\app\api\v1\routes\payments.py [523] @router.get("/online/list")
+\backend\app\api\v1\routes\payments.py [588] @router.get("/online/{op_id}")
+\backend\app\api\v1\routes\payments.py [606] @router.post("/online/{op_id}/reconcile")
+\backend\app\api\v1\routes\payments.py [640] @router.post("/online/{op_id}/refund")
+\backend\app\api\v1\routes\payments.py [716] @router.post("/webhooks/razorpay/{school_id}", include_in_schema=False)
+\backend\app\api\v1\routes\payroll.py [110] @router.get("/components")
+\backend\app\api\v1\routes\payroll.py [125] @router.post("/components", status_code=status.HTTP_201_CREATED)
+\backend\app\api\v1\routes\payroll.py [151] @router.put("/components/{component_id}")
+\backend\app\api\v1\routes\payroll.py [262] @router.get("/staff")
+\backend\app\api\v1\routes\payroll.py [321] @router.get("/staff/{teacher_id}")
+\backend\app\api\v1\routes\payroll.py [349] @router.post("/staff/{teacher_id}/structures", status_code=status.HTTP_201_CREATED)
+\backend\app\api\v1\routes\payroll.py [396] @router.put("/structures/{structure_id}")
+\backend\app\api\v1\routes\payroll.py [428] @router.delete("/structures/{structure_id}")
+\backend\app\api\v1\routes\payroll.py [503] @router.get("/runs")
+\backend\app\api\v1\routes\payroll.py [570] @router.post("/runs", status_code=status.HTTP_201_CREATED)
+\backend\app\api\v1\routes\payroll.py [589] @router.get("/runs/{run_id}")
+\backend\app\api\v1\routes\payroll.py [594] @router.post("/runs/{run_id}/recalculate")
+\backend\app\api\v1\routes\payroll.py [602] @router.post("/runs/{run_id}/{action}")
+\backend\app\api\v1\routes\payroll.py [637] @router.delete("/runs/{run_id}")
+\backend\app\api\v1\routes\payroll.py [672] @router.get("/runs/{run_id}/register.csv")
+\backend\app\api\v1\routes\payroll.py [737] @router.get("/payslips/{payslip_id}")
+\backend\app\api\v1\routes\payroll.py [742] @router.post("/payslips/{payslip_id}/adjustments", status_code=status.HTTP_201_CREATED)
+\backend\app\api\v1\routes\payroll.py [767] @router.delete("/adjustments/{adjustment_id}")
+\backend\app\api\v1\routes\payroll.py [792] @router.get("/payslips/{payslip_id}/pdf")
+\backend\app\api\v1\routes\platform.py [188] @router.get("/features")
+\backend\app\api\v1\routes\platform.py [196] @router.get("/plans")
+\backend\app\api\v1\routes\platform.py [204] @router.post("/plans", status_code=status.HTTP_201_CREATED)
+\backend\app\api\v1\routes\platform.py [250] @router.patch("/plans/{plan_id}")
+\backend\app\api\v1\routes\platform.py [294] @router.delete("/plans/{plan_id}", status_code=status.HTTP_204_NO_CONTENT)
+\backend\app\api\v1\routes\platform.py [332] @router.get("/schools/{school_id}/usage")
+\backend\app\api\v1\routes\platform.py [339] @router.get("/analytics")
+\backend\app\api\v1\routes\platform.py [352] @router.patch("/schools/{school_id}/admins/{user_id}")
+\backend\app\api\v1\routes\portal.py [110] @router.get("/children", response_model=list[Child])
+\backend\app\api\v1\routes\portal.py [147] @router.get("/children/{student_id}", response_model=ChildProfile)
+\backend\app\api\v1\routes\portal.py [193] @router.get("/children/{student_id}/attendance")
+\backend\app\api\v1\routes\portal.py [256] @router.get("/children/{student_id}/fees", response_model=ChildFees)
+\backend\app\api\v1\routes\portal.py [333] @router.get("/children/{student_id}/payments/{payment_id}/receipt.pdf")
+\backend\app\api\v1\routes\portal.py [369] @router.get("/children/{student_id}/timetable")
+\backend\app\api\v1\routes\portal.py [382] @router.get("/children/{student_id}/timetable/pdf")
+\backend\app\api\v1\routes\portal.py [397] @router.get("/children/{student_id}/homework")
+\backend\app\api\v1\routes\portal.py [413] @router.get("/children/{student_id}/homework/{homework_id}")
+\backend\app\api\v1\routes\portal.py [427] @router.get("/children/{student_id}/homework/{homework_id}/attachments/{file_id}")
+\backend\app\api\v1\routes\portal.py [444] @router.get("/children/{student_id}/homework/{homework_id}/files/{file_id}")
+\backend\app\api\v1\routes\portal.py [461] @router.get("/children/{student_id}/exams")
+\backend\app\api\v1\routes\portal.py [474] @router.get("/children/{student_id}/exams/{exam_id}/report-card.pdf")
+\backend\app\api\v1\routes\portal.py [488] @router.get("/children/{student_id}/library")
+\backend\app\api\v1\routes\portal.py [501] @router.get("/children/{student_id}/transport")
+\backend\app\api\v1\routes\public_admissions.py [157] @router.get("/{code}")
+\backend\app\api\v1\routes\public_admissions.py [167] @router.post("/{code}", status_code=status.HTTP_201_CREATED)
+\backend\app\api\v1\routes\public_admissions.py [261] @router.post("/{code}/status")
+\backend\app\api\v1\routes\public_verify.py [24] @router.get("/{token}")
+\backend\app\api\v1\routes\push.py [77] @router.get("/config")
+\backend\app\api\v1\routes\push.py [92] @router.get("/subscriptions", response_model=list[SubscriptionOut])
+\backend\app\api\v1\routes\push.py [97] @router.post("/subscriptions", response_model=SubscriptionOut, status_code=status.HTTP_201_CREATED)
+\backend\app\api\v1\routes\push.py [126] @router.patch("/subscriptions/{sub_id}", response_model=SubscriptionOut)
+\backend\app\api\v1\routes\push.py [148] @router.delete("/subscriptions/{sub_id}", status_code=status.HTTP_204_NO_CONTENT)
+\backend\app\api\v1\routes\push.py [163] @router.post("/unsubscribe", status_code=status.HTTP_204_NO_CONTENT)
+\backend\app\api\v1\routes\push.py [177] @router.post("/test")
+\backend\app\api\v1\routes\reports.py [417] @router.get("/{name}")
+\backend\app\api\v1\routes\report_cards.py [147] @router.get("/templates")
+\backend\app\api\v1\routes\report_cards.py [162] @router.post("/templates", status_code=status.HTTP_201_CREATED)
+\backend\app\api\v1\routes\report_cards.py [202] @router.get("/templates/{template_id}")
+\backend\app\api\v1\routes\report_cards.py [207] @router.patch("/templates/{template_id}")
+\backend\app\api\v1\routes\report_cards.py [249] @router.post("/templates/{template_id}/default")
+\backend\app\api\v1\routes\report_cards.py [280] @router.delete("/templates/{template_id}")
+\backend\app\api\v1\routes\report_cards.py [304] @router.put("/templates/{template_id}/signature")
+\backend\app\api\v1\routes\report_cards.py [344] @router.delete("/templates/{template_id}/signature")
+\backend\app\api\v1\routes\report_cards.py [368] @router.get("/templates/{template_id}/signature.png")
+\backend\app\api\v1\routes\report_cards.py [379] @router.get("/templates/{template_id}/preview.pdf")
+\backend\app\api\v1\routes\school.py [17] @router.get("", response_model=CurrentSchoolOut)
+\backend\app\api\v1\routes\school_account.py [29] @router.get("/staff-accounts")
+\backend\app\api\v1\routes\school_account.py [67] @router.post("/staff-accounts/accountants", status_code=status.HTTP_201_CREATED)
+\backend\app\api\v1\routes\school_account.py [141] @router.patch("/staff-accounts/accountants/{user_id}")
+\backend\app\api\v1\routes\sections.py [99] @router.get("", response_model=SectionList)
+\backend\app\api\v1\routes\sections.py [144] @router.post("", response_model=SectionOut, status_code=status.HTTP_201_CREATED)
+\backend\app\api\v1\routes\sections.py [173] @router.post("/bulk", response_model=BulkResult, status_code=status.HTTP_201_CREATED)
+\backend\app\api\v1\routes\sections.py [235] @router.post("/copy", response_model=BulkResult, status_code=status.HTTP_201_CREATED)
+\backend\app\api\v1\routes\sections.py [304] @router.patch("/{section_id}", response_model=SectionOut)
+\backend\app\api\v1\routes\sections.py [344] @router.delete("/{section_id}", response_model=SectionOut)
+\backend\app\api\v1\routes\sections.py [373] @router.post("/{section_id}/restore", response_model=SectionOut)
+\backend\app\api\v1\routes\sessions.py [82] @router.get("", response_model=list[SessionOut])
+\backend\app\api\v1\routes\sessions.py [92] @router.post("", response_model=SessionOut, status_code=status.HTTP_201_CREATED)
+\backend\app\api\v1\routes\sessions.py [133] @router.patch("/{session_id}", response_model=SessionOut)
+\backend\app\api\v1\routes\sessions.py [172] @router.post("/{session_id}/set-current", response_model=SessionOut)
+\backend\app\api\v1\routes\sessions.py [202] @router.post("/{session_id}/archive", response_model=SessionOut)
+\backend\app\api\v1\routes\sessions.py [236] @router.post("/{session_id}/restore", response_model=SessionOut)
+\backend\app\api\v1\routes\sessions.py [262] @router.delete("/{session_id}", status_code=status.HTTP_204_NO_CONTENT)
+\backend\app\api\v1\routes\students.py [153] @router.get("", response_model=StudentList)
+\backend\app\api\v1\routes\students.py [232] @router.get("/next-admission-number", response_model=NextAdmissionNumber)
+\backend\app\api\v1\routes\students.py [262] @router.get("/{student_id}", response_model=StudentDetail)
+\backend\app\api\v1\routes\students.py [269] @router.post("", response_model=StudentDetail, status_code=status.HTTP_201_CREATED)
+\backend\app\api\v1\routes\students.py [293] @router.patch("/{student_id}", response_model=StudentDetail)
+\backend\app\api\v1\routes\students.py [322] @router.patch("/{student_id}/enrollments/{enrollment_id}", response_model=StudentDetail)
+\backend\app\api\v1\routes\students.py [365] @router.post("/{student_id}/enrollments", response_model=StudentDetail, status_code=status.HTTP_201_CREATED)
+\backend\app\api\v1\routes\students.py [395] @router.post("/{student_id}/status", response_model=StudentDetail)
+\backend\app\api\v1\routes\students.py [425] @router.post("/{student_id}/photo", response_model=StudentDetail)
+\backend\app\api\v1\routes\students.py [467] @router.delete("/{student_id}/photo", response_model=StudentDetail)
+\backend\app\api\v1\routes\student_login.py [55] @router.get("", response_model=LoginOut)
+\backend\app\api\v1\routes\student_login.py [61] @router.put("", response_model=LoginOut)
+\backend\app\api\v1\routes\student_login.py [131] @router.delete("", response_model=LoginOut)
+\backend\app\api\v1\routes\teachers.py [172] @router.get("", response_model=TeacherList)
+\backend\app\api\v1\routes\teachers.py [227] @router.get("/{teacher_id}", response_model=TeacherDetail)
+\backend\app\api\v1\routes\teachers.py [235] @router.post("", response_model=TeacherDetail, status_code=status.HTTP_201_CREATED)
+\backend\app\api\v1\routes\teachers.py [272] @router.patch("/{teacher_id}", response_model=TeacherDetail)
+\backend\app\api\v1\routes\teachers.py [317] @router.post("/{teacher_id}/status", response_model=TeacherDetail)
+\backend\app\api\v1\routes\teachers.py [360] @router.post("/{teacher_id}/photo", response_model=TeacherDetail)
+\backend\app\api\v1\routes\teachers.py [402] @router.delete("/{teacher_id}/photo", response_model=TeacherDetail)
+\backend\app\api\v1\routes\teachers.py [426] @router.put("/{teacher_id}/login", response_model=TeacherDetail)
+\backend\app\api\v1\routes\teachers.py [493] @router.delete("/{teacher_id}/login", response_model=TeacherDetail)
+\backend\app\api\v1\routes\teachers.py [523] @router.put("/{teacher_id}/library-duty", response_model=TeacherDetail)
+\backend\app\api\v1\routes\teachers.py [571] @router.post("/{teacher_id}/assignments", response_model=TeacherDetail, status_code=status.HTTP_201_CREATED)
+\backend\app\api\v1\routes\teachers.py [626] @router.patch("/{teacher_id}/assignments/{assignment_id}", response_model=TeacherDetail)
+\backend\app\api\v1\routes\teachers.py [664] @router.delete("/{teacher_id}/assignments/{assignment_id}", response_model=TeacherDetail)
+\backend\app\api\v1\routes\teaching.py [98] @router.get("/me", response_model=MyProfile)
+\backend\app\api\v1\routes\teaching.py [111] @router.get("/classes", response_model=MyClasses)
+\backend\app\api\v1\routes\teaching.py [167] @router.get("/sections/{section_id}", response_model=SectionView)
+\backend\app\api\v1\routes\teaching.py [236] @router.get("/timetable")
+\backend\app\api\v1\routes\teaching.py [249] @router.get("/timetable/pdf")
+\backend\app\api\v1\routes\timetable.py [397] @router.get("/setup")
+\backend\app\api\v1\routes\timetable.py [412] @router.get("/subjects", response_model=list[SubjectOut])
+\backend\app\api\v1\routes\timetable.py [432] @router.post("/subjects", response_model=list[SubjectOut], status_code=status.HTTP_201_CREATED)
+\backend\app\api\v1\routes\timetable.py [455] @router.post("/subjects/common", response_model=list[SubjectOut], status_code=status.HTTP_201_CREATED)
+\backend\app\api\v1\routes\timetable.py [481] @router.patch("/subjects/{subject_id}", response_model=list[SubjectOut])
+\backend\app\api\v1\routes\timetable.py [523] @router.post("/periods", response_model=list[PeriodOut], status_code=status.HTTP_201_CREATED)
+\backend\app\api\v1\routes\timetable.py [563] @router.post("/periods/generate", response_model=list[PeriodOut], status_code=status.HTTP_201_CREATED)
+\backend\app\api\v1\routes\timetable.py [616] @router.patch("/periods/{period_id}", response_model=list[PeriodOut])
+\backend\app\api\v1\routes\timetable.py [661] @router.delete("/periods/{period_id}", response_model=list[PeriodOut])
+\backend\app\api\v1\routes\timetable.py [692] @router.get("/sections/{section_id}", response_model=Grid)
+\backend\app\api\v1\routes\timetable.py [699] @router.get("/sections/{section_id}/pdf")
+\backend\app\api\v1\routes\timetable.py [707] @router.get("/teachers/{teacher_id}", response_model=Grid)
+\backend\app\api\v1\routes\timetable.py [717] @router.get("/teachers/{teacher_id}/pdf")
+\backend\app\api\v1\routes\timetable.py [728] @router.post("/check")
+\backend\app\api\v1\routes\timetable.py [733] @router.post("/entries", response_model=Grid, status_code=status.HTTP_201_CREATED)
+\backend\app\api\v1\routes\timetable.py [801] @router.patch("/entries/{entry_id}", response_model=Grid)
+\backend\app\api\v1\routes\timetable.py [861] @router.delete("/entries/{entry_id}", response_model=Grid)
+\backend\app\api\v1\routes\timetable.py [889] @router.get("/sections/{section_id}/teachers")
+\backend\app\api\v1\routes\transport.py [156] @router.get("/dashboard")
+\backend\app\api\v1\routes\transport.py [174] @router.get("/compliance")
+\backend\app\api\v1\routes\transport.py [312] @router.get("/vehicles")
+\backend\app\api\v1\routes\transport.py [365] @router.get("/vehicles/{vehicle_id}")
+\backend\app\api\v1\routes\transport.py [370] @router.post("/vehicles", status_code=status.HTTP_201_CREATED)
+\backend\app\api\v1\routes\transport.py [400] @router.put("/vehicles/{vehicle_id}")
+\backend\app\api\v1\routes\transport.py [418] @router.delete("/vehicles/{vehicle_id}")
+\backend\app\api\v1\routes\transport.py [486] @router.get("/staff")
+\backend\app\api\v1\routes\transport.py [513] @router.get("/staff/{staff_id}")
+\backend\app\api\v1\routes\transport.py [518] @router.post("/staff", status_code=status.HTTP_201_CREATED)
+\backend\app\api\v1\routes\transport.py [548] @router.put("/staff/{staff_id}")
+\backend\app\api\v1\routes\transport.py [566] @router.delete("/staff/{staff_id}")
+\backend\app\api\v1\routes\transport.py [607] @router.post("/{kind}/{owner_id}/documents", status_code=status.HTTP_201_CREATED)
+\backend\app\api\v1\routes\transport.py [698] @router.get("/documents/{doc_id}/file")
+\backend\app\api\v1\routes\transport.py [743] @router.patch("/documents/{doc_id}")
+\backend\app\api\v1\routes\transport.py [759] @router.delete("/documents/{doc_id}")
+\backend\app\api\v1\routes\transport.py [819] @router.get("/zones")
+\backend\app\api\v1\routes\transport.py [829] @router.post("/zones", status_code=status.HTTP_201_CREATED)
+\backend\app\api\v1\routes\transport.py [861] @router.put("/zones/{zone_id}")
+\backend\app\api\v1\routes\transport.py [926] @router.get("/routes")
+\backend\app\api\v1\routes\transport.py [959] @router.get("/routes/{route_id}")
+\backend\app\api\v1\routes\transport.py [964] @router.post("/routes", status_code=status.HTTP_201_CREATED)
+\backend\app\api\v1\routes\transport.py [994] @router.put("/routes/{route_id}")
+\backend\app\api\v1\routes\transport.py [1025] @router.delete("/routes/{route_id}")
+\backend\app\api\v1\routes\transport.py [1048] @router.post("/routes/{route_id}/stops", status_code=status.HTTP_201_CREATED)
+\backend\app\api\v1\routes\transport.py [1094] @router.put("/stops/{stop_id}")
+\backend\app\api\v1\routes\transport.py [1118] @router.delete("/stops/{stop_id}")
+\backend\app\api\v1\routes\transport.py [1136] @router.put("/routes/{route_id}/stops/order")
+\backend\app\api\v1\routes\transport.py [1191] @router.get("/students")
+\backend\app\api\v1\routes\transport.py [1256] @router.get("/routes/{route_id}/sheet")
+\backend\app\api\v1\routes\transport.py [1286] @router.post("/assignments", status_code=status.HTTP_201_CREATED)
+\backend\app\api\v1\routes\transport.py [1328] @router.post("/assignments/{assignment_id}/end")
+\backend\app\api\v1\routes\transport.py [1367] @router.put("/assignments/{assignment_id}")
+\backend\app\api\v1\routes\transport.py [1392] @router.get("/student/{student_id}")
